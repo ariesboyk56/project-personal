@@ -1,0 +1,135 @@
+.container {
+  position: relative;
+  height: 693px;
+  text-align: center;
+  margin-top: 78px;
+  .title {
+    font-size: 41px;
+    line-height: 49px;
+    font-weight: bold;
+    margin: 0 0 55px 0;
+  }
+  .containerProduct {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    padding-top: 15px;
+    .product {
+      padding: 5px;
+      .image,
+      .imageActive {
+        width: 267px;
+        height: 267px;
+        border-radius: 50%;
+        box-shadow: none;
+      }
+      .imageActive {
+        position: relative;
+        background-color: transparent;
+        transition: all 0.25s ease-in;
+        .image {
+          background-color: #f6f7fb;
+          position: absolute;
+          left: 7px;
+          bottom: 4px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          .productBtn {
+            display: none;
+            position: absolute;
+            z-index: 1;
+            top: 217px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #08d15f;
+            color: white;
+            text-decoration: none;
+            font-size: 12px;
+            line-height: 29px;
+            width: 93px;
+            height: 29px;
+            border-radius: 2px;
+            text-align: center;
+            transition: all 0.25s ease;
+            -webkit-transition: all 0.25s ease;
+            animation: viewBtnFade 0.5s linear;
+            -webkit-animation: viewBtnFade 0.5s linear;
+            &:hover {
+              background-color: #05e6b7;
+            }
+          }
+        }
+      }
+      .info {
+        .name {
+          margin: 26px 0 13px;
+          font-size: 19.8506px;
+          line-height: 23px;
+        }
+        .price {
+          margin: 0;
+          font-size: 15.8805px;
+          line-height: 19px;
+        }
+      }
+      &:hover {
+        cursor: pointer;
+        .imageActive {
+        background-color: #9877e7;
+            box-shadow: 0px 7.94024px 39.7012px rgba(49, 32, 138, 0.05);
+          .image {
+            .productBtn {
+              display: block;
+            }
+          }
+        }
+      }
+    }
+  }
+  .dotSlide {
+    z-index: 1;
+    position: absolute;
+    display: flex;
+    justify-content: space-around;
+    width: 67px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    bottom: 125px;
+    left: 50%;
+    transform: translateX(-50%);
+    .dotItem {
+      cursor: pointer;
+      width: 10px;
+      height: 10px;
+      border: 1px solid var(--primary-color);
+      border-radius: 50%;
+      transition: background-color 0.6s ease;
+      &.active {
+        background-color: var(--primary-color);
+      }
+    }
+  }
+}
+@keyframes viewBtnFade {
+    from {
+      top: 229px;
+      opacity: 0.4;
+    }
+    to {
+      top: 217px;
+      opacity: 1;
+    }
+}
+@-webkit-keyframes viewBtnFade {
+    from {
+      top: 229px;
+      opacity: 0.4;
+    }
+    to {
+      top: 217px;
+      opacity: 1;
+    }
+}

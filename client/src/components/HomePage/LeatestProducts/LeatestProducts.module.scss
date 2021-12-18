@@ -1,0 +1,130 @@
+.leatestTitle {
+  font-size: 41px;
+  line-height: calc(49 / 41);
+  font-weight: bold;
+  text-align: center;
+  margin: 70px 0 19px;
+}
+.leatestListFilter {
+  position: relative;
+  list-style: none;
+  display: flex;
+  gap: 0 56px;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0 0 62px 0;
+  transition: all 0.25s ease;
+
+  .leatestListItem {
+    cursor: pointer;
+    font-size: 18px;
+    line-height: 21px;
+    font-family: var(--secondary-font);
+    transition: all .25s ease;
+    -webkit-transition: all .25s ease;
+    &.active {
+      color: var(--primary-color);
+    }
+  }
+  .lineActive {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: all .25s ease;
+    -webkit-transition: all .25s ease;
+  }
+}
+
+.wrapperFeature {
+  .leatestProducts {
+    position: relative;
+    margin-bottom: 58px;
+    .leatestSale {
+      position: absolute;
+      top: 20px;
+      left: 13px;
+      width: 84px;
+      height: 56px;
+      z-index: 1;
+    }
+    .leatestAction {
+      position: absolute;
+      z-index: 1;
+      display: none;
+      list-style: none;
+      //   display: flex;
+      flex-direction: column;
+      left: 15px;
+      top: 145px;
+      margin: 0;
+      padding: 0;
+      gap: 0 10px;
+      // transition: animation .25 ease;
+      animation: actionFade 0.5s linear;
+      li {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        color: #1389ff;
+        font-size: 13px;
+        &:hover {
+          color: #2f1ac4;
+          background-color: #eeeffb;
+        }
+      }
+    }
+    .leatestImg {
+      position: relative;
+      height: 268px;
+      background-color: #f7f7f7;
+      img {
+        position: absolute;
+        bottom: 8px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+    .leatestInfo {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 16px;
+      line-height: 19px;
+      padding-top: 18px;
+      .leatestNewPrice {
+        font-size: 14px;
+        line-height: 16px;
+      }
+      .leatestOldPrice {
+        color: var(--primary-color);
+        font-size: 12px;
+        line-height: 14px;
+        text-decoration: line-through;
+      }
+    }
+    &:hover {
+      cursor: pointer;
+      .leatestAction {
+        display: flex;
+      }
+    }
+  }
+}
+@keyframes actionFade {
+  from {
+    left: 0;
+    opacity: 0;
+  }
+  to {
+    left: 15px;
+    opacity: 1;
+  }
+}

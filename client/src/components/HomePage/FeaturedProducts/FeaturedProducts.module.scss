@@ -1,0 +1,189 @@
+.title {
+  font-size: 41px;
+  line-height: calc(49 / 41);
+  font-weight: bold;
+  text-align: center;
+  margin: 128px 0 47px;
+}
+.wrapperFeature {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  .featuredProduct {
+    position: relative;
+    margin: 0 10px 52px;
+    border: 1px solid #f6f7fb;
+    box-shadow: 0px 2px 10px #e0e0e0;
+    .featuredAction {
+      position: absolute;
+      z-index: 1;
+      display: none;
+      list-style: none;
+      // display: flex;
+      left: 11px;
+      top: 11px;
+      margin: 0;
+      padding: 0;
+      gap: 0 10px;
+      transition: all 0.25s ease;
+      -webkit-transition: all 0.25s ease;
+      animation: actionFade 0.5s linear;
+      -webkit-animation: actionFade 0.5s linear;
+      li {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        color: #1389ff;
+        font-size: 13px;
+        &:hover {
+          color: #2f1ac4;
+          background-color: #eeeffb;
+        }
+      }
+    }
+    .featuredBtn {
+      display: none;
+      position: absolute;
+      z-index: 1;
+      top: 196px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #08d15f;
+      color: white;
+      text-decoration: none;
+      font-size: 12px;
+      line-height: 29px;
+      width: 93px;
+      height: 29px;
+      border-radius: 2px;
+      text-align: center;
+      transition: all 0.25s ease;
+      -webkit-transition: all 0.25s ease;
+      animation: viewBtnFade 0.5s linear;
+      -webkit-animation: viewBtnFade 0.5s linear;
+      &:hover {
+        background-color: #05e6b7;
+      }
+    }
+    .featuredImg {
+      background-color: #f6f7fb;
+      height: var(--featured-product-img-height);
+      position: relative;
+      img {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 12px;
+      }
+    }
+    .featuredInfo {
+      font-family: var(--secondary-font);
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      font-size: 14px;
+      line-height: 16px;
+      transition: all 0.25s ease;
+      -webkit-transition: all 0.25s ease;
+      .featuredName {
+        font-size: 1.8rem;
+        font-weight: 700;
+        line-height: 21px;
+        color: var(--primary-color);
+        margin: 15px 0 12px;
+      }
+      .featuredColor {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        list-style: none;
+        margin: 0 0 12px 0;
+        padding: 0;
+        gap: 0 4px;
+        li {
+          height: 4px;
+          width: 14px;
+          border-radius: 9px;
+          cursor: pointer;
+          &.colorGreen {
+            background-color: #05e6b7;
+          }
+          &.colorPink {
+            background-color: #f701a8;
+          }
+          &.colorBlue {
+            background-color: #00009d;
+          }
+        }
+      }
+      .featuredCode {
+        font-family: var(--primary-font);
+        margin-bottom: 10px;
+      }
+      .featuredPrice {
+        font-weight: 400;
+        margin-bottom: 16px;
+      }
+    }
+    &:hover {
+      .featuredAction {
+        display: flex;
+      }
+      .featuredBtn {
+        display: block;
+      }
+      .featuredInfo {
+        color: white;
+        background-color: #2f1ac4;
+        .featuredName {
+          color: white;
+        }
+      }
+    }
+  }
+}
+
+@keyframes actionFade {
+  from {
+    left: 0;
+    opacity: 0.4;
+  }
+  to {
+    left: 11px;
+    opacity: 1;
+  }
+}
+@-webkit-keyframes actionFade {
+  from {
+    left: 0;
+    opacity: 0.4;
+  }
+  to {
+    left: 11px;
+    opacity: 1;
+  }
+}
+@keyframes viewBtnFade {
+    from {
+      top: 206px;
+      opacity: 0.4;
+    }
+    to {
+      top: 196px;
+      opacity: 1;
+    }
+}
+@-webkit-keyframes viewBtnFade {
+    from {
+      top: 206px;
+      opacity: 0.4;
+    }
+    to {
+      top: 196px;
+      opacity: 1;
+    }
+}

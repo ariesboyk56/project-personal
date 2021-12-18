@@ -1,0 +1,108 @@
+.container {
+  width: 100%;
+  margin-top: 120px;
+  text-align: center;
+  .title {
+    margin: 0 0 32px 0;
+    font-weight: bold;
+    font-size: 41px;
+    line-height: 49px;
+  }
+  .content {
+    height: 592px;
+    .discountListFilter {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0 29px;
+      transition: all 0.25s ease;
+      .discountListItem {
+        font-family: var(--secondary-font);
+        font-size: 17px;
+        line-height: 21px;
+        cursor: pointer;
+        transition: all 0.25s ease;
+        -webkit-transition: all 0.25s ease;
+        &.activeDiscount {
+          color: var(--primary-color);
+        }
+      }
+      .lineActive {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 0;
+        height: 2px;
+        background-color: var(--primary-color);
+        transition: all .25s ease;
+        -webkit-transition: all .25s ease;
+      }
+    }
+
+    .contentProduct {
+      display: flex;
+      height: 100%;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 16px 0;
+      margin-right: -25px;
+      h1 {
+        font-size: 33px;
+        line-height: 132%;
+        letter-spacing: 0.015rem;
+        font-weight: bold;
+        margin: 0;
+      }
+      span {
+        font-size: 20px;
+        line-height: 132%;
+        letter-spacing: 0.015rem;
+        color: var(--primary-color);
+      }
+      p,
+      .desc .descItem {
+        text-align: left;
+        font-family: var(--secondary-font);
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 30px;
+        letter-spacing: 0.02em;
+        color: var(--subtext-color);
+        display: inline-block;
+      }
+      .desc {
+        display: flex;
+        align-items: center;
+        font-size: 15px;
+        text-align: left;
+      }
+      .descItem {
+        position: relative;
+        padding-left: 24px;
+        &::before {
+          content: "";
+          position: absolute;
+          border-left: 2px solid #7569b2;
+          border-bottom: 2px solid #7569b2;
+          width: 15px;
+          height: 9px;
+          left: 0;
+          top: 50%;
+          transform: translateY(-70%) rotate(-45deg);
+        }
+      }
+      button {
+        height: 56px;
+        width: 198px;
+        font-size: 16.873px;
+        line-height: 20px;
+        &:hover {
+          opacity: 0.9;
+        }
+      }
+    }
+  }
+}

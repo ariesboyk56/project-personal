@@ -1,0 +1,35 @@
+.offer {
+  width: 100%;
+  text-align: center;
+  h1 {
+    font-size: 41px;
+    line-height: 49px;
+    padding: 57px 0 54px;
+    margin: 0;
+    font-weight: bold;
+  }
+  .offerContent {
+    box-shadow: 0 2px 40px #e5e5e5;
+    img {
+      margin-top: 55px;
+    }
+    h3 {
+      font-weight: bold;
+      font-size: 21px;
+      line-height: 26px;
+      margin: 26px 0 19px;
+    }
+    p {
+      width: 215px;
+      font-family: var(--secondary-font);
+      font-style: normal;
+      font-weight: bold;
+      font-size: 16px;
+      line-height: 25px;
+      text-align: center;
+      color: var(--subtext-color);
+      margin: 0 auto;
+      padding-bottom: 44px;
+    }
+  }
+}

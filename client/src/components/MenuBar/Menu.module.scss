@@ -1,0 +1,74 @@
+.navBar {
+  position: fixed;
+  z-index: 10;
+  top: var(--header-bar-height);
+  width: 100%;
+  max-width: 1921px;
+  color: var(--text-color);
+  background-color: var(--white-color);
+  font-family: var(--secondary-font);
+  font-size: 1.6rem;
+  padding: 5px 0;
+  margin: 0;
+  height: var(--menu-bar-height);
+  .content {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto;
+    a {
+      display: block;
+      color: var(--text-color);
+      text-decoration: none;
+    }
+    .left {
+      display: flex;
+      .textLogo {
+        font-family: var(--primary-font);
+        font-weight: bold;
+        font-size: 3.4rem;
+        line-height: 4rem;
+        cursor: pointer;
+      }
+      ul {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        li {
+          a {
+            display: block;
+            height: 40px;
+            line-height: 40px;
+            padding: 0 17px;
+            &:hover {
+              color: var(--primary-color);
+            }
+          }
+        }
+      }
+    }
+
+    .right {
+      display: flex;
+      text-align: center;
+      height: 40px;
+      input {
+        width: 270px;
+        border: 2px solid var(--border-color);
+        border-right: none;
+        outline: none;
+      }
+      span {
+        display: flex;
+        height: 100%;
+        width: 40px;
+        align-items: center;
+        justify-content: center;
+        color: var(--white-color);
+        background-color: var(--primary-color);
+        cursor: pointer;
+      }
+    }
+  }
+}
