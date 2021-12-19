@@ -41,7 +41,7 @@
             height: 40px;
             line-height: 40px;
             padding: 0 17px;
-            &:hover {
+            &.active {
               color: var(--primary-color);
             }
           }

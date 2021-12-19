@@ -1,0 +1,129 @@
+.about {
+  padding: 69px 0 110px;
+  .aboutUs {
+    display: flex;
+    div {
+      padding-left: 30px;
+      h1 {
+        font-size: 36px;
+        line-height: 48px;
+        font-weight: bold;
+        margin-bottom: 14px;
+      }
+      p {
+        font-family: var(--secondary-font);
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 26px;
+        color: var(--subtext-color);
+      }
+      button {
+        margin-top: 70px;
+        width: 145px;
+        height: 44px;
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 26px;
+      }
+    }
+  }
+  .aboutOffer {
+    width: 100%;
+    text-align: center;
+    padding: 100px 0;
+    h1 {
+      color: #000000;
+      font-size: 41px;
+      line-height: 49px;
+      padding: 0 0 54px 0;
+      margin: 0;
+      font-weight: bold;
+    }
+    .offerContent {
+      box-shadow: 0 2px 40px #e5e5e5;
+      img {
+        margin-top: 55px;
+      }
+      h3 {
+        font-weight: bold;
+        font-size: 21px;
+        line-height: 26px;
+        margin: 26px 0 19px;
+      }
+      p {
+        width: 215px;
+        font-family: var(--secondary-font);
+        font-style: normal;
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 25px;
+        text-align: center;
+        color: var(--subtext-color);
+        margin: 0 auto;
+        padding-bottom: 44px;
+      }
+    }
+  }
+  .aboutClient {
+    height: 503px;
+    background-color: #fbfbff;
+    text-align: center;
+    h1 {
+      font-size: 42px;
+      line-height: 26px;
+      font-weight: bold;
+      color: #000000;
+      margin: 0;
+      padding: 60px 0 0 0;
+    }
+    p {
+      margin: 0;
+    }
+    .clientContent {
+      width: 689px;
+      margin: auto;
+      .avtClient {
+        display: flex;
+        justify-content: space-between;
+        margin: 64px auto 0;
+        width: 191px;
+      }
+      .infoClient {
+        margin: 25px 0 14px;
+        font-family: var(--secondary-font);
+        font-weight: 600;
+        color: var(--subtext-color);
+        .nameClient {
+          font-style: normal;
+          font-size: 22px;
+          line-height: 26px;
+          color: #000000;
+        }
+        .serviceClient {
+          font-size: 10px;
+          line-height: 26px;
+          padding-bottom: 14px;
+        }
+        .descClient {
+          font-weight: bold;
+          font-size: 16px;
+          line-height: 26px;
+        }
+      }
+    }
+    .dotList{
+        display: flex;
+        align-items: center;
+        gap: 0 5px;
+        width: 73px;
+        list-style: none;
+        margin: auto;
+        .dotItem{
+            width: 18px;
+            height: 3px;
+            background-color: #FF75B0;
+        }
+    }
+  }
+}

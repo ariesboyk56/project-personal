@@ -2,7 +2,7 @@ import clsx from "clsx";
 import classes from "./HomePage.module.scss";
 import FeaturedProducts from "./FeaturedProducts";
 import LeatestProducts from "./LeatestProducts";
-import Footer from "../../Footer";
+import Footer from "../Footer";
 import SliderHome from "../SliderHome";
 import ShopOffer from "./ShopOffer";
 import UniqueProduct from "./UniqueProduct";

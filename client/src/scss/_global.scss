@@ -1,4 +1,3 @@
-
 * {
   box-sizing: inherit;
 }
@@ -32,7 +31,7 @@ body {
 .ml-4 {
   margin-left: 4px;
 }
-.btn{
+.btn {
   display: inline-block;
   font-family: $primary-font;
   width: 114px;
@@ -43,20 +42,52 @@ body {
   cursor: pointer;
   border: none;
   outline: none;
-  &.primary{
+  &.primary {
     color: $white-color;
     background-color: $primary-color;
   }
-  &.outline{
+  &.outline {
     color: $primary-color;
     border: 1px solid;
     background-color: transparent;
   }
-  &:hover{
-    opacity: .9;
+  &:hover {
+    opacity: 0.9;
   }
 }
+input,
+textarea {
+  border: 1px solid #CDCEDC;
+  &::-webkit-placeholder {
+    font-family: var(--secondary-font);
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: 0.01em;
+    color: var(--subtext-color);
+  }
 
+  &::-ms-placeholder {
+    font-family: var(--secondary-font);
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: 0.01em;
+    color: var(--subtext-color);
+  }
+
+  &::placeholder {
+    font-family: var(--secondary-font);
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: 0.01em;
+    color: var(--subtext-color);
+  }
+}
 /* Fading animation */
 .fade {
   -webkit-animation-name: fade;
@@ -66,11 +97,19 @@ body {
 }
 
 @-webkit-keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
 }

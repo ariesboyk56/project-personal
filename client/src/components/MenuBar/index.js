@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import classes from "./Menu.module.scss";
 import { NavLink } from "react-router-dom";
+import { useLocation } from "react-router-dom"
 
 const menus = [
   {
@@ -30,22 +31,24 @@ const menus = [
 ];
 
 const CustomMenu = ({ path, name }) => {
+  let location = useLocation()
+  let isActive = location.pathname === path
   return (
-    <li>
-      <NavLink to={path}>{name}</NavLink>
-    </li>
+      <li>
+          <NavLink className={isActive ? `${classes.active}` : ''} to={path}>{name}</NavLink>
+      </li>
   );
 };
-const showMenu = (menus) => {
-  var result = null;
-  if (menus.length > 0) {
-    result = menus.map((menu, index) => {
-      return <CustomMenu key={index} path={menu.path} name={menu.name} />;
-    });
-  }
-  return result;
-};
 const Menu = () => {
+  const showMenu = (menus) => {
+    var result = null;
+    if (menus.length > 0) {
+      result = menus.map((menu, index) => {
+        return <CustomMenu key={index} path={menu.path} name={menu.name} />;
+      });
+    }
+    return result;
+  };
   return (
     <nav className={classes.navBar}>
       <div className={clsx(classes.content, "wide")}>

@@ -1,5 +1,5 @@
 import classes from './NotFound404.module.scss'
-import Footer from '../../Footer'
+import Footer from '../Footer'
 import {useNavigate} from 'react-router-dom'
 import notFoundImg from './../../image/NotFound404.svg' 
 import brandImg from './../../image/brand.png' 

@@ -1,0 +1,36 @@
+.contact {
+  margin-top: calc(var(--header-bar-height) + var(--menu-bar-height));
+  .contactMenu {
+    background-color: #f6f5ff;
+    h1 {
+      font-size: 36px;
+      line-height: 42px;
+      font-weight: bold;
+      padding: 15px 0 8px;
+      margin: 0;
+    }
+    ul {
+      list-style: none;
+      display: flex;
+      gap: 0 13px;
+      margin: 0;
+      padding: 0 0 15px 0;
+      li {
+        height: 19px;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 19px;
+        text-align: center;
+        font-family: var(--secondary-font);
+        a {
+          color: #000000;
+          text-decoration: none;
+          &.active {
+            color: var(--primary-color);
+          }
+        }
+      }
+    }
+  }
+}

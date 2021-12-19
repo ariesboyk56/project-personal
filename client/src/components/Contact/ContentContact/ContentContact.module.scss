@@ -1,0 +1,130 @@
+.containerContact {
+  font-family: var(--secondary-font);
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 26px;
+  color: var(--subtext-color);
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  p {
+    margin: 0;
+  }
+  h1 {
+    font-family: var(--primary-font);
+    font-size: 36px;
+    line-height: 48px;
+    font-weight: bold;
+    color: var(--text-color);
+    margin: 0;
+    padding-top: 120px;
+    padding-bottom: 13px;
+  }
+  .rowUp {
+    display: flex;
+    .rowUpL {
+      p {
+        width: 550px;
+        margin-bottom: 35px;
+      }
+      .dotRowUpL {
+        display: flex;
+        gap: 0 14px;
+        li {
+          width: 25px;
+          height: 25px;
+          border-radius: 50%;
+          background-color: #5625df;
+          &:nth-child(2) {
+            background-color: #ff27b7;
+          }
+          &:nth-child(3) {
+            background-color: #37daf3;
+          }
+        }
+      }
+    }
+    .rowUpR {
+      padding-left: 49px;
+      h1 {
+        margin-left: 37px;
+      }
+      .dotRowUpR {
+        display: flex;
+        p {
+          position: relative;
+          padding-left: 60px;
+          margin: 24px 0 24px 37px;
+          &::before {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            content: "";
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background-color: #5625df;
+          }
+        }
+        .item1::before {
+          background-color: #5625df;
+        }
+        .item2::before {
+          background-color: #ffb265;
+        }
+        .item3::before {
+          background-color: #fb2e86;
+        }
+        .item3::before {
+          background-color: #1be982;
+        }
+      }
+    }
+  }
+  .rowDown {
+    display: flex;
+    p {
+      width: 550px;
+      padding-bottom: 49px;
+    }
+    .image{
+      position: relative;
+      img {
+      // margin: 88px -70px 239px 0;
+      position: absolute;
+      left: -22px;
+      top: 88px;
+    }
+    }
+    
+    form {
+      width: 534px;
+      padding-bottom: 326px;
+      
+      input {
+        height: 45px;
+      }
+      .onceRow {
+        display: flex;
+        justify-content: space-between;
+        input {
+          width: 255px;
+          margin-bottom: 34px;
+        }
+      }
+      textarea {
+        height: 166px;
+        margin-top: 47px;
+      }
+      button {
+        width: 157px;
+        height: 44px;
+        margin-top: 33px;
+      }
+    }
+  }
+}
