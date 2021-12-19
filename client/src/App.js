@@ -6,6 +6,8 @@ import HeadingBar from './components/HeaderBar'
 import HomePage from './components/HomePage';
 import GlobalStyles from './components/GlobalStyles';
 import Menu from './components/MenuBar';
+import NotFound404 from './components/NotFound404';
+import Contact from './components/Contact';
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         {/* <Route path="/products" element={<Products />} /> */}
+        <Route path="/contact" element={<Contact />} />
+        <Route path="*" element={<NotFound404 />} />
       </Routes>
     </div>
     </GlobalStyles>

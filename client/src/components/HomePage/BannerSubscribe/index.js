@@ -1,6 +1,6 @@
 import React from 'react'
 import classes from './BannerSubscribe.module.scss'
-import brandImg from './../../../image/banner/image1174.png'
+import brandImg from './../../../image/brand.png'
 
 const BannerSubscribe = () => {
     return (
