@@ -6,7 +6,8 @@ import classes from "./SliderHome.module.scss";
 const SliderHome = () => {
   const $ = document.querySelector.bind(document);
   const $$ = document.querySelectorAll.bind(document);
-  window.addEventListener("load", () => {
+  // window.addEventListener("load", () => {
+    document.addEventListener('DOMContentLoaded', function () {
     // const slider = $(`.${classes.slide}`);
     const dotItems = $$(`.${classes.dotItem}`);
     // const slideMain = $(`.${classes.mainSlide}`);
@@ -35,6 +36,7 @@ const SliderHome = () => {
     };
     
     var slideIndex = 0;
+    
     autoSlide()
     function autoSlide() {
       var i;

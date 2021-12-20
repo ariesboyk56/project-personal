@@ -1,6 +1,14 @@
+import React from 'react';
 import classes from "./HeadingBar.module.scss";
 import clsx from "clsx";
+import { useNavigate } from "react-router-dom";
+
 const HeadingBar = () => {
+  let navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate("/auth/login")
+  }
   return (
       <div className={classes.content}>
         <div className={clsx(classes.contentWide, 'wide')}>
@@ -32,7 +40,7 @@ const HeadingBar = () => {
           </div>
 
           <div className={classes.item}>
-            <span>Login</span>
+            <span onClick={()=>handleClick()}>Login</span>
             <i className=" ml-4 far fa-user"></i>
           </div>
 

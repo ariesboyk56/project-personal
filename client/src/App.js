@@ -11,6 +11,9 @@ import Contact from './components/Contact';
 import About from './components/Contact/About';
 import FAQ from './components/Contact/FAQ';
 import ContentContact from './components/Contact/ContentContact';
+import AuthForm from './components/AuthForm';
+import Login from './components/AuthForm/Login';
+import Register from './components/AuthForm/Register';
 
 function App() {
     return (
@@ -20,6 +23,10 @@ function App() {
                 <Menu />
                 <Routes>
                     <Route path="/" element={<HomePage />} />
+                    <Route path="auth" element={<AuthForm />}>
+                        <Route path="login" element={<Login />} /> 
+                        <Route path="register" element={<Register />} /> 
+                    </Route>
                     <Route path="contact" element={<Contact />}>
                         <Route path="" element={<ContentContact />} />
                         <Route path="about" element={<About />} />

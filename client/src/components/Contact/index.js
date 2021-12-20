@@ -1,5 +1,4 @@
 import { Outlet, useLocation } from "react-router-dom"
-import clsx from 'clsx'
 import classes from './Contact.module.scss'
 import { NavLink } from "react-router-dom";
 import Footer from "./../Footer"

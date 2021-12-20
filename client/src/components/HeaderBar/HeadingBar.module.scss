@@ -10,6 +10,9 @@
   top: 0;
   background-color: #7e33e0;
   color: var(--white-color);
+  span{
+    cursor: pointer;
+  }
   .contentWide {
     display: flex;
     justify-content: space-between;

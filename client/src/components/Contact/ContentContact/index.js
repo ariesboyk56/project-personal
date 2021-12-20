@@ -49,17 +49,17 @@ const ContentContact = () => {
                         <form>
                             <div className={classes.onceRow}>
                                 <div className="form-group">
-                                    <input type="text" className="form-control" id="" placeholder="Your Name*"/>
+                                    <input type="text" className="form-control" id="" placeholder="Your Name*" required/>
                                 </div>
                                 <div className="form-group">
-                                    <input type="email" className="form-control" id="" placeholder="Your E-mail"/>
+                                    <input type="email" className="form-control" id="" placeholder="Your E-mail" />
                                 </div>
                             </div>
                             <div className="form-group">
-                                <input type="text" className="form-control" id="" placeholder="Subject*"/>
+                                <input type="text" className="form-control" id="" placeholder="Subject*" required/>
                             </div>
                             <div className="form-group">
-                                <textarea type="text" className="form-control" id="" placeholder="Type Your Message*"/>
+                                <textarea type="text" className="form-control" id="" placeholder="Type Your Message*" required/>
                             </div>
                         
                             
