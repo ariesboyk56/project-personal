@@ -1,0 +1,102 @@
+.checkbox {
+  input[type="checkbox"] {
+    display: none;
+  }
+  label {
+    position: relative;
+    padding-left: 10px;
+    span:before {
+      cursor: pointer;
+      content: "\2713";
+      width: 16px;
+      height: 16px;
+      line-height: 16px;
+      font-size: 15px;
+      font-weight: bold;
+      text-align: center;
+      background-color: #e5e0fc;
+      color: #603eff;
+      box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, 0.3),
+        0px 1px 0px 0px rgba(255, 255, 255, 0.8);
+      position: absolute;
+      left: 0;
+      bottom: 0;
+    }
+    span.blue:before {
+      background-color: #e5e0fc;
+      color: #603eff;
+    }
+    span.pink:before {
+      background-color: #ffdbf1;
+      color: #ff3eb2;
+    }
+    span.yellow:before {
+      background-color: #fff6da;
+      color: #ffcc2e;
+    }
+  }
+  input[type="checkbox"]:checked + label span:before {
+    content: "\2713";
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+    font-size: 15px;
+    color: #e5e0fc;
+    text-align: center;
+    line-height: 17px;
+  }
+  input[type="checkbox"]:checked + label span.blue:before {
+    background-color: #603eff;
+    color: #e5e0fc;
+  }
+  input[type="checkbox"]:checked + label span.pink:before {
+    background-color: #ff3eb2;
+    color: #e5e0fc;
+  }
+  input[type="checkbox"]:checked + label span.yellow:before {
+    background-color: #ffcc2e;
+    color: #e5e0fc;
+  }
+  &.circle {
+    label {
+      span:before {
+        content: "";
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background-color: #e5e0fc;
+        box-shadow: none;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+      }
+      span.blue:before {
+        background-color: #5e37ff;
+      }
+      span.orange:before {
+        background-color: #ff9437;
+      }
+      span.brown:before {
+        background-color: #ffbf95;
+      }
+      span.green:before {
+        background-color: #33d221;
+      }
+      span.purple:before {
+        background-color: #e248ff;
+      }
+      span.sky:before {
+        background-color: #26cbff;
+      }
+    }
+    input[type="checkbox"]:checked + label span.sky:before,
+    input[type="checkbox"]:checked + label span.purple:before,
+    input[type="checkbox"]:checked + label span.green:before,
+    input[type="checkbox"]:checked + label span.brown:before,
+    input[type="checkbox"]:checked + label span.orange:before,
+    input[type="checkbox"]:checked + label span.blue:before {
+      content: "";
+      width: 17px;
+      height: 17px;
+      border: 2px solid #ffffff;
+    }
+  }
+}

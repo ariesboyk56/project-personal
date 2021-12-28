@@ -1,3 +1,4 @@
+import React from 'react';
 import clsx from "clsx";
 import classes from "./HomePage.module.scss";
 import FeaturedProducts from "./FeaturedProducts";

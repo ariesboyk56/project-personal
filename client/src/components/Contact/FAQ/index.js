@@ -1,3 +1,4 @@
+import React from 'react';
 import classes from "./FAQ.module.scss"
 import brandImg from "./../../../image/brand.png"
 const FAQ = () => {

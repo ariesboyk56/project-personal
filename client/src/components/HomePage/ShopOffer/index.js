@@ -1,3 +1,4 @@
+import React from 'react';
 import classes from './ShopOffer.module.scss'
 import img1 from './../../../image/offer/free-delivery1.png'
 import img2 from './../../../image/offer/cashback1.png'

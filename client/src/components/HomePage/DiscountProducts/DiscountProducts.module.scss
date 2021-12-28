@@ -17,14 +17,14 @@
       justify-content: center;
       gap: 0 29px;
       transition: all 0.25s ease;
-      .discountListItem {
+      span {
         font-family: var(--secondary-font);
         font-size: 17px;
         line-height: 21px;
         cursor: pointer;
         transition: all 0.25s ease;
         -webkit-transition: all 0.25s ease;
-        &.activeDiscount {
+        &.active {
           color: var(--primary-color);
         }
       }

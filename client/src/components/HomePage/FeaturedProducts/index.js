@@ -1,4 +1,5 @@
 import classes from "./FeaturedProducts.module.scss";
+import React from 'react';
 import clsx from 'clsx'
 import imgtest from './../../../image/products/image1168.png'
 // const data = [

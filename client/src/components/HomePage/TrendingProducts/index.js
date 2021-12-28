@@ -1,3 +1,4 @@
+import React from 'react';
 import clsx from 'clsx'
 import classes from './TrendingProducts.module.scss'
 import productImg from './../../../image/products/image1168.png'

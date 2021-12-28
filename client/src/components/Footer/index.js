@@ -1,4 +1,5 @@
 import classes from './Footer.module.scss'
+import React from 'react';
 import clsx from 'clsx'
 const Footer = () => {
     return (

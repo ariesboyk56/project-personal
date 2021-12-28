@@ -1,3 +1,4 @@
+import React from 'react';
 import clsx from 'clsx'
 import classes from './UniqueProduct.module.scss'
 import productImg from './../../../image/products/group153.png'

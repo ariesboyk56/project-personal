@@ -1,3 +1,4 @@
+import React from 'react';
 import classes from "./ContentContact.module.scss"
 import contactImg from "./../../../image/contact/contact.svg"
 const ContentContact = () => {

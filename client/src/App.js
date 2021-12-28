@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Routes, Route } from 'react-router-dom'
 import './scss/app.scss'
@@ -14,6 +13,7 @@ import ContentContact from './components/Contact/ContentContact';
 import AuthForm from './components/AuthForm';
 import Login from './components/AuthForm/Login';
 import Register from './components/AuthForm/Register';
+import Shop from './components/Shop';
 
 function App() {
     return (
@@ -26,6 +26,9 @@ function App() {
                     <Route path="auth" element={<AuthForm />}>
                         <Route path="login" element={<Login />} /> 
                         <Route path="register" element={<Register />} /> 
+                    </Route>
+                    <Route path="shop" element={<Shop />}>
+                        {/* <Route path="login" element={<Login />} />  */}
                     </Route>
                     <Route path="contact" element={<Contact />}>
                         <Route path="" element={<ContentContact />} />

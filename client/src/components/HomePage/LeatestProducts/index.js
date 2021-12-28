@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import clsx from 'clsx'
 import classes from './LeatestProducts.module.scss'
 import imgitems from '../../../image/products/image1166.png'
@@ -46,29 +47,50 @@ const data = [
         oldPrice: 65.00
     }
 ]
+
 const LeatestProducts = () => {
-    const $ = document.querySelector.bind(document);
-    const $$ = document.querySelectorAll.bind(document);
-    window.addEventListener("load", () => {
-        const lists = $$(`.${classes.leatestListItem}`)
-
-        const itemActive = $(`.${classes.leatestListItem}.${classes.active}`)
-        const lineActive = $(`.${classes.lineActive}`)
-
-        lineActive.style.left = itemActive.offsetLeft + 'px'
-        lineActive.style.width = itemActive.offsetWidth + 'px'
-
-        lists.forEach((item, index) => {
-            item.onclick = function () {
-                $(`.${classes.leatestListItem}.${classes.active}`).classList.remove(classes.active)
-
-                lineActive.style.left = this.offsetLeft + 'px'
-                lineActive.style.width = this.offsetWidth + 'px'
-
-                this.classList.add(classes.active)
+    const [check, setCheck] = useState(
+        [
+            {
+                name: "New Arrival",
+                isActive: true
+            },
+            {
+                name: "Best Seller",
+                isActive: false
+            },
+            {
+                name: "Featured",
+                isActive: false
+            },
+            {
+                name: "Special Offer",
+                isActive: false
             }
-        });
-    })
+        ]
+    )
+    // const $ = document.querySelector.bind(document);
+    // const $$ = document.querySelectorAll.bind(document);
+    // window.addEventListener("load", () => {
+    //     const lists = $$(`.${classes.leatestListItem}`)
+
+    //     const itemActive = $(`.${classes.leatestListItem}.${classes.active}`)
+    //     const lineActive = $(`.${classes.lineActive}`)
+
+    //     lineActive.style.left = itemActive.offsetLeft + 'px'
+    //     lineActive.style.width = itemActive.offsetWidth + 'px'
+
+    //     lists.forEach((item, index) => {
+    //         item.onclick = function () {
+    //             $(`.${classes.leatestListItem}.${classes.active}`).classList.remove(classes.active)
+
+    //             lineActive.style.left = this.offsetLeft + 'px'
+    //             lineActive.style.width = this.offsetWidth + 'px'
+
+    //             this.classList.add(classes.active)
+    //         }
+    //     });
+    // })
     const showLeatestProducts = (data) => {
         return data.map((item, index) => {
             return <div key={index} className="col-xs-4 col-sm-4 col-md-4 col-lg-4">
@@ -93,17 +115,40 @@ const LeatestProducts = () => {
             </div>
         })
     }
+
+    const showSubMenu = (check) => {
+        return check.map((item, index) => {
+            return <span
+                key={index}
+                className={item.isActive ? classes.active : null}
+                onClick={(event) => handleActive(event, index)}
+            >
+                {item.name}
+            </span>
+        })
+    }
+    const handleActive = (e, index) => {
+        var result = []
+        check.map((item, i)=>{
+    
+            result.push({
+                name: item.name,
+                isActive: false
+            })
+            if(index === i){
+                result[index].isActive = true
+            }
+        })
+        setCheck(result)
+    }
     return (
         <>
             <div className="row">
                 <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <h1 className={classes.leatestTitle}>Leatest Products</h1>
                     <div className={classes.leatestListFilter}>
-                        <span className={clsx(classes.leatestListItem, classes.active)}>New Arrival</span>
-                        <span className={classes.leatestListItem}>Best Seller</span>
-                        <span className={classes.leatestListItem}>Featured</span>
-                        <span className={classes.leatestListItem}>Special Offer</span>
-                        <span className={classes.lineActive}></span>
+                        {showSubMenu(check)}
+                        <div className={classes.lineActive}></div>
                     </div>
                 </div>
             </div>

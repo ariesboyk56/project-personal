@@ -21,7 +21,7 @@ const HeadingBar = () => {
           </div>
 
           <div className={classes.item}>
-            <a href="tel:0123456789">
+            <a href="tel:0825587643">
               <i className="fas fa-phone-volume mr-10"></i>
               <span>0123-456-789</span>
             </a>

@@ -55,9 +55,15 @@ body {
     opacity: 0.9;
   }
 }
-
+ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+select,
 input,
 textarea {
+  outline: none;
   border: 1px solid #CDCEDC;
   &::-webkit-placeholder {
     font-family: var(--secondary-font);
