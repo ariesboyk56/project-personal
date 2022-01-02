@@ -24,7 +24,56 @@
       height: 44px;
     }
   }
-  .brandImg{
-      margin: 75px 0 166px;
+  .brandImg {
+    margin: 75px 0 166px;
+  }
+}
+// Responsive
+
+/* Mobile && Tablet */
+@media (max-width: 1023px) {
+  //CSS
+}
+
+/* Tablet */
+@media (min-width: 740px) and (max-width: 1023px) {
+  //CSS
+  .container {
+    .notFoundImg {
+      margin-top: 0;
+      img {
+        width: 100%;
+      }
+      span{
+        bottom: 60px;
+      }
+    }
+    img{
+      width: 80%;
+    }
+  }
+}
+
+/* Mobile */
+@media (max-width: 739px) {
+  //CSS
+  .container {
+    .notFoundImg {
+      margin-top: 60px;
+      img {
+        width: 100%;
+      }
+      span{
+        bottom: 28px;
+        font-size: 13px;
+    line-height: 16px;
+      }
+      button{
+        bottom: -20px;
+      }
+    }
+    img{
+      width: 80%;
+    }
   }
 }

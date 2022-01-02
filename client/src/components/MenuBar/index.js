@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import clsx from "clsx";
 import classes from "./Menu.module.scss";
 import { NavLink } from "react-router-dom";
@@ -31,16 +31,22 @@ const menus = [
   },
 ];
 
-const CustomMenu = ({ path, name }) => {
-  let location = useLocation()
-  let isActive = location.pathname === path
-  return (
-      <li>
-          <NavLink className={isActive ? `${classes.active}` : ''} to={path}>{name}</NavLink>
-      </li>
-  );
-};
 const Menu = () => {
+  const [show, setShow] = useState(false)
+  const CustomMenu = ({ path, name }) => {
+    let location = useLocation()
+    let isActive = location.pathname === path
+    return (
+      <li onClick={()=>handleShow()}>
+        <NavLink className={isActive ? `${classes.active}` : ''} to={path}>{name}</NavLink>
+      </li>
+    );
+  };
+
+  const handleShow = () => {
+    setShow(!show)
+    // console.log(show);
+  }
   const showMenu = (menus) => {
     var result = null;
     if (menus.length > 0) {
@@ -54,10 +60,13 @@ const Menu = () => {
     <nav className={classes.navBar}>
       <div className={clsx(classes.content, "wide")}>
         <div className={classes.left}>
+          <div className={classes.menuBars}>
+            <span onClick={()=>handleShow()}><i className="fas fa-bars"></i></span>
+          </div>
           <div>
             <span className={classes.textLogo}>Hekto</span>
           </div>
-          <div>
+          <div className={classes.menu} style={show? {display: "block"}:{display: "none"}}>
             <ul>{showMenu(menus)}</ul>
           </div>
         </div>

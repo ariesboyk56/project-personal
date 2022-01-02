@@ -1,0 +1,59 @@
+POST http://localhost:5050/api/auth/register
+Content-Type: application/json
+
+{
+    "email": "admin1@gmail.com",
+    "password": "123123",
+    "firstName": "admin",
+    "lastName": "dev"
+}
+
+###
+
+POST http://localhost:5050/api/auth/login
+Content-Type: application/json
+
+{
+    "email": "admin1@gmail.com",
+    "password": "123123"
+}
+
+###
+
+POST http://localhost:5050/api/products
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MWQxNWIzNzcyZDdjZDFjZGVjMWVjMjYiLCJpYXQiOjE2NDExMTYzNjV9.JevLk9u3B4i5aHUTUNLcVtgfnwPw9wfb6c4L4FR1lro
+
+{
+    "pro_name": "Desk",
+    "pro_slug": "ghe",
+    "pro_price": "120000",
+    "pro_quantity": "31",
+    "pro_description": "ghe tre",
+    "pro_avatar": ""
+}
+
+###
+
+GET  http://localhost:5050/api/products
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MWQxNWIzNzcyZDdjZDFjZGVjMWVjMjYiLCJpYXQiOjE2NDExMTYzNjV9.JevLk9u3B4i5aHUTUNLcVtgfnwPw9wfb6c4L4FR1lro
+
+###
+
+PUT http://localhost:5050/api/products/61d17de40ef56005d2fd18a2
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MWQxNWIzNzcyZDdjZDFjZGVjMWVjMjYiLCJpYXQiOjE2NDExMTYzNjV9.JevLk9u3B4i5aHUTUNLcVtgfnwPw9wfb6c4L4FR1lro
+
+{
+    "pro_name": "Desk",
+    "pro_slug": "ghe",
+    "pro_price": "190000",
+    "pro_quantity": "11",
+    "pro_description": "updated12",
+    "pro_avatar": "updated12"
+}
+
+###
+
+DELETE  http://localhost:5050/api/products/61d17de40ef56005d2fd18a2
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MWQxNWIzNzcyZDdjZDFjZGVjMWVjMjYiLCJpYXQiOjE2NDExMTYzNjV9.JevLk9u3B4i5aHUTUNLcVtgfnwPw9wfb6c4L4FR1lro

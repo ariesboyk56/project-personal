@@ -18,7 +18,7 @@ import Shop from './components/Shop';
 function App() {
     return (
         <GlobalStyles>
-            <div className='grid'>
+            <div className='grid' style={{overflow: "hidden"}}>
                 <HeadingBar />
                 <Menu />
                 <Routes>
