@@ -1,85 +1,65 @@
+import React, { useEffect } from "react"
 import clsx from "clsx";
 import itemImg1 from "./../../image/slider/slider-image1.png";
 import itemImg2 from "./../../image/slider/slider-image2.png";
 import classes from "./SliderHome.module.scss";
 
 const SliderHome = () => {
-  // const $ = document.querySelector.bind(document);
-  // const $$ = document.querySelectorAll.bind(document);
-  // // window.addEventListener("load", () => {
-  //   document.addEventListener('DOMContentLoaded', function () {
-  //   // const slider = $(`.${classes.slide}`);
-  //   const dotItems = $$(`.${classes.dotItem}`);
-  //   // const slideMain = $(`.${classes.mainSlide}`);
-  //   const slideItems = $$(`.${classes.slideProduct}`);
-  //   // const slideItemWidth = slideItems[0].offsetWidth;
+  const $ = document.querySelector.bind(document);
+  const $$ = document.querySelectorAll.bind(document);
+  useEffect(() => {
+      loadSlider()
+  })
+  function loadSlider(){
+      const dotItems = $$(`.${classes.dotItem}`);
+      const slideItems = $$(`.${classes.slideProduct}`);
 
 
-  //   const handleChangeSlide = (index) => {
-  //     // Cách 1: thay slide bằng display: none - block
-  //     for(var i = 0; i < slideItems.length; i++){
-  //       if(i!==index){
-  //         slideItems[i].style.display = "none";
-  //       }
-  //       else {
-  //         slideItems[i].style.display = "block";
-  //       }
-  //     }
+      const handleChangeSlide = (index) => {
+        for (var i = 0; i < slideItems.length; i++) {
+          if (i !== index) {
+            slideItems[i].style.display = "none";
+          }
+          else {
+            slideItems[i].style.display = "block";
+          }
+        }
+      };
 
-  //       // Cách 2: thay slide bằng transform = "none" - `translate(-${transWidth}px)`
-  //     // let transWidth = slideItemWidth * index;
-  //     // if (index === 0) {
-  //     //   slideMain.style.transform = "none";
-  //     // } else {
-  //     //   slideMain.style.transform = `translate(-${transWidth}px)`;
-  //     // }
-  //   };
-    
-  //   var slideIndex = 0;
-    
-  //   autoSlide()
-  //   function autoSlide() {
-  //     var i;
-  //       // Cách 1: thay slide bằng display: none - block
-  //     for (i = 0; i < slideItems.length; i++) {
-  //       slideItems[i].style.display = "none";        
-  //     }
+      var slideIndex = 0;
 
-  //     slideIndex++;
-  //     if (slideIndex > slideItems.length) {
-  //       slideIndex = 1;
-  //     }
+      autoSlide()
+      function autoSlide() {
+        var i;
+        for (i = 0; i < slideItems.length; i++) {
+          slideItems[i].style.display = "none";
+        }
 
-  //     for (i = 0; i < dotItems.length; i++) {
-  //       dotItems[i].className = dotItems[i].className.replace(classes.active, "");
-  //     }
-  //       // Cách 1: thay slide bằng display: none - block
-  //     slideItems[slideIndex - 1].style.display = "block";
+        slideIndex++;
+        if (slideIndex > slideItems.length) {
+          slideIndex = 1;
+        }
 
-  //       // Cách 2: thay slide bằng transform = "none" - `translate(-${transWidth}px)`
-  //     // let transWidth = slideItemWidth * (slideIndex - 1);
-  //     // if (slideIndex === 1) {
-  //     //   slideMain.style.transform = "none";
-  //     // } else {
-  //     //   slideMain.style.transform = `translate(-${transWidth}px)`;
-  //     // }
+        for (i = 0; i < dotItems.length; i++) {
+          dotItems[i].className = dotItems[i].className.replace(classes.active, "");
+        }
+        slideItems[slideIndex - 1].style.display = "block";
 
-  //     dotItems[slideIndex - 1].classList.add(`${classes.active}`);
-  //     setTimeout(autoSlide, 3000);
-  //   }
+        dotItems[slideIndex - 1].classList.add(`${classes.active}`);
+        setTimeout(autoSlide, 3000);
+      }
 
-  //   dotItems.forEach((item, index) => {
-  //     item.onclick = () => {
-  //       $(`.${classes.dotItem}.${classes.active}`).classList.remove(
-  //         `${classes.active}`
-  //       );
-  //       item.classList.add(`${classes.active}`);
-  //       // slideItems[index]
+      dotItems.forEach((item, index) => {
+        item.onclick = () => {
+          $(`.${classes.dotItem}.${classes.active}`).classList.remove(
+            `${classes.active}`
+          );
+          item.classList.add(`${classes.active}`);
 
-  //       handleChangeSlide(index);
-  //     };
-  //   });
-  // });
+          handleChangeSlide(index);
+        };
+      });
+  }
 
   return (
     <div className={classes.slide}>

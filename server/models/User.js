@@ -5,7 +5,7 @@ const UserSchema = new Schema({
     email: {
         type: String,
         required: true,
-        unique: true
+        unique: true,
     },
     password: {
         type: String,
@@ -29,7 +29,7 @@ const UserSchema = new Schema({
         enum: ["activated","not activated"],
     },
     phone: {
-        type: Number,
+        type: String,
     },
     emailVerifiedAt: {
         type: Date,
@@ -63,5 +63,4 @@ const UserSchema = new Schema({
 // UserSchema.path('name').set((inputString)=>{
 //     return inputString[0].toUpperCase() + inputString.slice(1)
 // })
-
 module.exports = mongoose.model('users', UserSchema)

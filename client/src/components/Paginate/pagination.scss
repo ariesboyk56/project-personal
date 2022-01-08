@@ -1,0 +1,15 @@
+ul.pagination{
+    justify-content: center;
+    li.page-item{
+        a.page-link{
+            color: var(--text-color);
+        }
+        &.active a.page-link{
+            color: var(--white-color);
+            background-color: var(--text-color);
+        }
+        &.disabled a.page-link{
+            color: var(--subtext-color);
+        }
+    }
+}

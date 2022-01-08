@@ -2,7 +2,7 @@ import classes from './NotFound404.module.scss'
 import Footer from '../Footer'
 import {useNavigate} from 'react-router-dom'
 import notFoundImg from './../../image/NotFound404.svg' 
-import brandImg from './../../image/brand.png' 
+// import brandImg from './../../image/brand.png' 
 const NotFound404 = () => {
     let navigate = useNavigate();
     const handleClick = () => {
@@ -18,7 +18,9 @@ const NotFound404 = () => {
                         <span>oOPs! The page you requested was not found!</span>
                         <button onClick={()=>handleClick()} className='btn primary'>Back To Home</button>
                     </div>
-                <img className={classes.brandImg} srcSet={`${brandImg} 2x`} alt='not found'/>
+                {/* <img className={classes.brandImg} srcSet={`${brandImg} 2x`} alt='not found'/> */}
+                <img className={classes.brandImg} srcSet="//live.staticflickr.com/65535/51796045806_4e8380c8c6_h.jpg 2x" alt='brand' />
+
                 </div>
             </div>
             <Footer />

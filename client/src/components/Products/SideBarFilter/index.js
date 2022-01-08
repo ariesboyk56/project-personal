@@ -3,7 +3,7 @@ import SideBar from './SideBar'
 import SideItem from './SideItem'
 import classes from "./SideBarFilter.module.scss"
 import CheckBox from './CheckBox'
-import BasicRating from './Rating'
+import BasicRating from '../Rating'
 const SideBarFilter = () => {
     return (
             <div className={classes.sideBarFilter}>

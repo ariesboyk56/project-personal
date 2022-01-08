@@ -81,6 +81,13 @@
 
 // Responsive
 
+/* Window */
+@media (min-width: 1024px) {
+  //CSS
+  .menu{
+    display: block !important;
+  }
+}
 /* Mobile && Tablet */
 @media (max-width: 1023px) {
   //CSS

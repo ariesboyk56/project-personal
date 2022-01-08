@@ -1,7 +1,6 @@
 import React from "react"
 import { useNavigate } from "react-router-dom"
 import classes from "./Register.module.scss"
-import brandImg from "./../../../image/brand.png"
 
 const Register = () => {
     const navigate = useNavigate()
@@ -42,7 +41,7 @@ const Register = () => {
                 </form>
 
             </div>
-            <img srcSet={`${brandImg} 2x`} alt="brand" />
+            <img srcSet="//live.staticflickr.com/65535/51796045806_4e8380c8c6_h.jpg 2x" alt='brand' />
 
         </div>
     )

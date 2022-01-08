@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import clsx from "clsx";
 import classes from "./Menu.module.scss";
-import { NavLink } from "react-router-dom";
-import { useLocation } from "react-router-dom"
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 
 const menus = [
   {
@@ -22,10 +21,6 @@ const menus = [
     name: "Blog",
   },
   {
-    path: "/shop",
-    name: "Shop",
-  },
-  {
     path: "/contact",
     name: "Contact",
   },
@@ -33,6 +28,8 @@ const menus = [
 
 const Menu = () => {
   const [show, setShow] = useState(false)
+  const navigate = useNavigate()
+
   const CustomMenu = ({ path, name }) => {
     let location = useLocation()
     let isActive = location.pathname === path
@@ -64,9 +61,11 @@ const Menu = () => {
             <span onClick={()=>handleShow()}><i className="fas fa-bars"></i></span>
           </div>
           <div>
-            <span className={classes.textLogo}>Hekto</span>
+            <span className={classes.textLogo} onClick={()=> navigate("/")}>Hekto</span>
           </div>
-          <div className={classes.menu} style={show? {display: "block"}:{display: "none"}}>
+          <div 
+          className={classes.menu} style={ show? {display: "block"}:{display: "none"}}
+          >
             <ul>{showMenu(menus)}</ul>
           </div>
         </div>

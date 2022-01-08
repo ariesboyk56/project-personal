@@ -6,15 +6,55 @@ const verifyToken = require('../middleware/auth')
 const Product = require('../models/Product')
 
 // @route GET api/products
-// @desc Get product
+// @desc Get product by userId
 // @access Private
-router.get('/', verifyToken, async (req, res) => {
+// router.get('/', verifyToken, async (req, res) => {
+//     try {
+//         const products = await Product.find({ user: req.userId }).populate('pro_author_id', [
+//             'firstName',
+//             'lastName'
+//         ])
+//         res.json({ success: true, products })
+//     } catch (error) {
+//         console.log(error);
+//         res
+//             .status(500)
+//             .json({ success: false, message: "Internal server error" })
+//     }
+// })
+
+// @route GET api/products
+// @desc Get product
+// @access Public
+router.get('/', async (req, res) => {
+    var page = parseInt(req.query.page) || 0; //for next page pass 1 here
+    var limit = parseInt(req.query.limit) || 10;
+    var query = {};
     try {
-        const products = await Product.find({ user: req.userId }).populate('pro_author_id', [
-            'firstName',
-            'lastName'
-        ])
-        res.json({ success: true, products })
+        const products = await Product
+            .find({})
+            .sort({ update_at: -1 })
+            .limit(limit)
+            .skip(page * limit)
+            .exec((err, doc) => {
+                if (err) {
+                    return res.json(err);
+                }
+                Product.countDocuments(query).exec((count_error, count) => {
+                    if (err) {
+                        return res.json(count_error);
+                    }
+                    var totalPages = Math.ceil(count/limit)
+                    return res.json({
+                        success: true,
+                        total: count,
+                        totalPages: totalPages,
+                        page: page,
+                        pageSize: doc.length,
+                        products: doc
+                    });
+                });
+            });
     } catch (error) {
         console.log(error);
         res
@@ -32,7 +72,8 @@ router.post('/', verifyToken, async (req, res) => {
     const {
         pro_name,
         pro_slug,
-        pro_price,
+        pro_new_price,
+        pro_old_price,
         pro_quantity,
         pro_description,
         pro_avatar,
@@ -43,7 +84,10 @@ router.post('/', verifyToken, async (req, res) => {
         pro_pay,
         create_at,
         view_counts,
-        meta
+        meta: {
+            votes,
+            favs
+        }
     } = req.body
 
     //Simple validation
@@ -56,7 +100,8 @@ router.post('/', verifyToken, async (req, res) => {
         const newProduct = new Product({
             pro_name,
             pro_slug,
-            pro_price,
+            pro_new_price,
+            pro_old_price,
             pro_quantity,
             pro_description,
             pro_avatar,
@@ -67,7 +112,10 @@ router.post('/', verifyToken, async (req, res) => {
             pro_pay,
             create_at,
             view_counts,
-            meta
+            meta: {
+                votes,
+                favs
+            }
         })
         await newProduct.save()
 
@@ -89,7 +137,8 @@ router.put('/:id', verifyToken, async (req, res) => {
     const {
         pro_name,
         pro_slug,
-        pro_price,
+        pro_new_price,
+        pro_old_price,
         pro_quantity,
         pro_description,
         pro_avatar,
@@ -100,6 +149,10 @@ router.put('/:id', verifyToken, async (req, res) => {
         update_at,
         update_by,
         view_counts,
+        meta: {
+            votes,
+            favs
+        }
     } = req.body
 
     //Simple validation
@@ -112,7 +165,8 @@ router.put('/:id', verifyToken, async (req, res) => {
         let updatedProduct = {
             pro_name,
             pro_slug,
-            pro_price,
+            pro_new_price,
+            pro_old_price,
             pro_quantity,
             pro_description,
             pro_avatar,
@@ -123,6 +177,10 @@ router.put('/:id', verifyToken, async (req, res) => {
             update_at,
             update_by: req.userId,
             view_counts,
+            meta: {
+                votes,
+                favs
+            }
         }
         const proUpCondition = { _id: req.params.id, pro_author_id: req.userId }
 
@@ -147,7 +205,7 @@ router.put('/:id', verifyToken, async (req, res) => {
 // @route DELETE api/products
 // @desc Delete product
 // @access Private
-router.delete('/:id', verifyToken, async(req, res) => {
+router.delete('/:id', verifyToken, async (req, res) => {
     try {
         const proDelCondition = { _id: req.params.id, pro_author_id: req.userId }
         const delProduct = await Product.findOneAndDelete(proDelCondition)

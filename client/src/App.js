@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom'
 import './scss/app.scss'
 import HeadingBar from './components/HeaderBar'
 import HomePage from './components/HomePage';
-import GlobalStyles from './components/GlobalStyles';
+// import GlobalStyles from './components/GlobalStyles';
 import Menu from './components/MenuBar';
 import NotFound404 from './components/NotFound404';
 import Contact from './components/Contact';
@@ -13,12 +13,15 @@ import ContentContact from './components/Contact/ContentContact';
 import AuthForm from './components/AuthForm';
 import Login from './components/AuthForm/Login';
 import Register from './components/AuthForm/Register';
-import Shop from './components/Shop';
+import Products from './components/Products';
+import AuthContextProvider from './contexts/AuthContext';
+import ProductContextProvider from './contexts/ProductContext';
 
 function App() {
     return (
-        <GlobalStyles>
-            <div className='grid' style={{overflow: "hidden"}}>
+        <AuthContextProvider>
+            <ProductContextProvider>
+                <div className='grid' style={{overflow: "hidden"}}>
                 <HeadingBar />
                 <Menu />
                 <Routes>
@@ -27,9 +30,7 @@ function App() {
                         <Route path="login" element={<Login />} /> 
                         <Route path="register" element={<Register />} /> 
                     </Route>
-                    <Route path="shop" element={<Shop />}>
-                        {/* <Route path="login" element={<Login />} />  */}
-                    </Route>
+                    <Route path="products" element={<Products />} />
                     <Route path="contact" element={<Contact />}>
                         <Route path="" element={<ContentContact />} />
                         <Route path="about" element={<About />} />
@@ -38,7 +39,8 @@ function App() {
                     <Route path="*" element={<NotFound404 />} />
                 </Routes>
             </div>
-        </GlobalStyles>
+            </ProductContextProvider>
+        </AuthContextProvider>
 
     );
 }

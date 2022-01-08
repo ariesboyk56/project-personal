@@ -10,8 +10,8 @@ const HeadingBar = () => {
     navigate("/auth/login")
   }
   return (
-      <div className={classes.content}>
-        <div className={clsx(classes.contentWide, 'wide')}>
+    <div className={classes.content}>
+      <div className={clsx(classes.contentWide, 'wide')}>
         <div className={classes.contact}>
           <div className={classes.item}>
             <a href="mailto:default@gmail.com">
@@ -38,23 +38,20 @@ const HeadingBar = () => {
             <span>USD</span>
             <i className=" ml-4 fas fa-angle-down"></i>
           </div>
-
-          <div className={classes.item}>
-            <span onClick={()=>handleClick()}>Login</span>
-            <i className=" ml-4 far fa-user"></i>
-          </div>
-
           <div className={classes.item}>
             <span>Wishlist</span>
             <i className=" ml-4 far fa-heart"></i>
           </div>
-
+          <div className={classes.item}>
+            <span onClick={() => handleClick()}>Login</span>
+            <i className=" ml-4 far fa-user"></i>
+          </div>
           <div className={classes.item}>
             <i className="fas fa-shopping-cart ml-4"></i>
           </div>
         </div>
-        </div>
       </div>
+    </div>
   );
 };
 

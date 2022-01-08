@@ -2,10 +2,12 @@ POST http://localhost:5050/api/auth/register
 Content-Type: application/json
 
 {
-    "email": "admin1@gmail.com",
+    "email": "user1@gmail.com",
     "password": "123123",
-    "firstName": "admin",
-    "lastName": "dev"
+    "firstName": "van",
+    "lastName": "tien",
+    "status": "not activated",
+    "position": "user"
 }
 
 ###
@@ -14,7 +16,7 @@ POST http://localhost:5050/api/auth/login
 Content-Type: application/json
 
 {
-    "email": "admin1@gmail.com",
+    "email": "shop@gmail.com",
     "password": "123123"
 }
 
@@ -22,7 +24,7 @@ Content-Type: application/json
 
 POST http://localhost:5050/api/products
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MWQxNWIzNzcyZDdjZDFjZGVjMWVjMjYiLCJpYXQiOjE2NDExMTYzNjV9.JevLk9u3B4i5aHUTUNLcVtgfnwPw9wfb6c4L4FR1lro
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MWQyYzYwNThkMjM4YWMyNGY0OWVkMTMiLCJpYXQiOjE2NDEyNjQ3Mjd9.lZ8q5G8y0Zw_ZQ0wCu3m_Rfbk5_3q8HvSQtSWGmadig
 
 {
     "pro_name": "Desk",
@@ -35,14 +37,17 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MWQxN
 
 ###
 
+GET  http://localhost:5050/api/products/all
+###
+
 GET  http://localhost:5050/api/products
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MWQxNWIzNzcyZDdjZDFjZGVjMWVjMjYiLCJpYXQiOjE2NDExMTYzNjV9.JevLk9u3B4i5aHUTUNLcVtgfnwPw9wfb6c4L4FR1lro
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MWQyYzYwNThkMjM4YWMyNGY0OWVkMTMiLCJpYXQiOjE2NDEyNjQ3Mjd9.lZ8q5G8y0Zw_ZQ0wCu3m_Rfbk5_3q8HvSQtSWGmadig
 
 ###
 
 PUT http://localhost:5050/api/products/61d17de40ef56005d2fd18a2
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MWQxNWIzNzcyZDdjZDFjZGVjMWVjMjYiLCJpYXQiOjE2NDExMTYzNjV9.JevLk9u3B4i5aHUTUNLcVtgfnwPw9wfb6c4L4FR1lro
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MWQyYzYwNThkMjM4YWMyNGY0OWVkMTMiLCJpYXQiOjE2NDEyNjQ3Mjd9.lZ8q5G8y0Zw_ZQ0wCu3m_Rfbk5_3q8HvSQtSWGmadig
 
 {
     "pro_name": "Desk",
@@ -56,4 +61,4 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MWQxN
 ###
 
 DELETE  http://localhost:5050/api/products/61d17de40ef56005d2fd18a2
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MWQxNWIzNzcyZDdjZDFjZGVjMWVjMjYiLCJpYXQiOjE2NDExMTYzNjV9.JevLk9u3B4i5aHUTUNLcVtgfnwPw9wfb6c4L4FR1lro
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MWQyYzYwNThkMjM4YWMyNGY0OWVkMTMiLCJpYXQiOjE2NDEyNjQ3Mjd9.lZ8q5G8y0Zw_ZQ0wCu3m_Rfbk5_3q8HvSQtSWGmadig

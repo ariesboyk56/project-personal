@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import clsx from 'clsx'
 import classes from "./About.module.scss"
 import aboutImg from "./../../../image/about/about.png"
@@ -31,7 +31,8 @@ const clientData = [
 const About = () => {
     const $ = document.querySelector.bind(document)
     const $$ = document.querySelectorAll.bind(document)
-    window.addEventListener("load", function () {
+    useEffect(()=>loadOutClient())
+    function loadOutClient(){
         const avtItems = $$(`.${classes.avtItem}`)
         const dotItems = $$(`.${classes.dotItem}`)
         const infoClients = $$(`.${classes.infoClient}`)
@@ -50,7 +51,8 @@ const About = () => {
                 }
             }
         });
-    })
+    }
+    
     const showInfoClient = (clientData) => {
         return clientData.map((client, index) => {
             return <div key={index} className={classes.infoClient}>

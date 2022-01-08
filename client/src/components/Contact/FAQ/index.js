@@ -1,6 +1,5 @@
 import React from 'react';
 import classes from "./FAQ.module.scss"
-import brandImg from "./../../../image/brand.png"
 const FAQ = () => {
     return (
         <div className="wide">
@@ -32,7 +31,9 @@ const FAQ = () => {
                     </form>
                 </div>
             </div>
-            <div className={classes.brand}><img srcSet={`${brandImg} 2x`} alt="brand" /></div>
+            <div className={classes.brand}>
+                <img srcSet="//live.staticflickr.com/65535/51796045806_4e8380c8c6_h.jpg 2x" alt='brand' />
+            </div>
         </div>
     )
 }
