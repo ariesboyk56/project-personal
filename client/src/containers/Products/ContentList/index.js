@@ -6,9 +6,6 @@ import "./contentlist.scss"
 
 const ContentList = () => {
     const {proState: {products}} = useContext(ProductContext)
-    let perPage = 5
-    let pageCount = products.length
-    // console.log("products.length", products.length);
     const showProduct = () => {
         return products.map((item, index) => {
             const {

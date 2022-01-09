@@ -2,18 +2,18 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom'
 import './scss/app.scss'
 import HeadingBar from './components/HeaderBar'
-import HomePage from './components/HomePage';
+import HomePage from './containers/HomePage';
 // import GlobalStyles from './components/GlobalStyles';
 import Menu from './components/MenuBar';
 import NotFound404 from './components/NotFound404';
-import Contact from './components/Contact';
-import About from './components/Contact/About';
-import FAQ from './components/Contact/FAQ';
-import ContentContact from './components/Contact/ContentContact';
+import Contact from './containers/Contact';
+import About from './containers/Contact/About';
+import FAQ from './containers/Contact/FAQ';
+import ContentContact from './containers/Contact/ContentContact';
 import AuthForm from './components/AuthForm';
 import Login from './components/AuthForm/Login';
 import Register from './components/AuthForm/Register';
-import Products from './components/Products';
+import Products from './containers/Products';
 import AuthContextProvider from './contexts/AuthContext';
 import ProductContextProvider from './contexts/ProductContext';
 

@@ -29,38 +29,77 @@ const Product = require('../models/Product')
 router.get('/', async (req, res) => {
     var page = parseInt(req.query.page) || 0; //for next page pass 1 here
     var limit = parseInt(req.query.limit) || 10;
+    var search = req.query.q
     var query = {};
-    try {
-        const products = await Product
-            .find({})
-            .sort({ update_at: -1 })
-            .limit(limit)
-            .skip(page * limit)
-            .exec((err, doc) => {
-                if (err) {
-                    return res.json(err);
-                }
-                Product.countDocuments(query).exec((count_error, count) => {
+    if (search) {
+        try {
+            const products = await Product
+                .find({
+                    pro_name: { $regex: '.*' + search + '.*', $options: 'i' }
+                    // pro_new_price: { $gt: 20, $lt: 60 }
+                })
+                .limit(limit)
+                .skip(page * limit)
+                .exec((err, doc) => {
                     if (err) {
-                        return res.json(count_error);
+                        return res.json(err);
                     }
-                    var totalPages = Math.ceil(count/limit)
-                    return res.json({
-                        success: true,
-                        total: count,
-                        totalPages: totalPages,
-                        page: page,
-                        pageSize: doc.length,
-                        products: doc
+                    Product.countDocuments({pro_name: { $regex: '.*' + search + '.*', $options: 'i' }}).exec((count_error, count) => {
+                        if (err) {
+                            return res.json(count_error);
+                        }
+                        var totalPages = Math.ceil(count / limit)
+                        return res.json({
+                            success: true,
+                            total: count,
+                            totalPages: totalPages,
+                            page: page,
+                            pageSize: doc.length,
+                            products: doc
+                        });
                     });
                 });
-            });
-    } catch (error) {
-        console.log(error);
-        res
-            .status(500)
-            .json({ success: false, message: "Internal server error" })
+        } catch (error) {
+            console.log(error);
+            res
+                .status(500)
+                .json({ success: false, message: "Internal server error" })
+        }
+    } else {
+        try {
+            const products = await Product
+                .find({})
+                .sort({ update_at: -1 })
+                .limit(limit)
+                .skip(page * limit)
+                .exec((err, doc) => {
+                    if (err) {
+                        return res.json(err);
+                    }
+                    Product.countDocuments(query).exec((count_error, count) => {
+                        if (err) {
+                            return res.json(count_error);
+                        }
+                        var totalPages = Math.ceil(count / limit)
+                        return res.json({
+                            success: true,
+                            total: count,
+                            totalPages: totalPages,
+                            page: page,
+                            pageSize: doc.length,
+                            products: doc
+                        });
+                    });
+                });
+        } catch (error) {
+            console.log(error);
+            res
+                .status(500)
+                .json({ success: false, message: "Internal server error" })
+        }
     }
+
+
 })
 
 

@@ -1,7 +1,19 @@
-import React from 'react'
+import React, {useState, useContext} from 'react'
+import Search from '../../../components/Product/Search'
 import classes from "./NavBarFilter.module.scss"
+import {ProductContext} from "./../../../contexts/ProductContext"
 const NavBarFilter = (props) => {
-    
+    const [keyword, setKeyword] = useState("")
+    const {loadProduct} = useContext(ProductContext)
+    const changHandleSearch = q => {
+        const params = {
+            page: 0,
+            search: q
+        }
+        props.cbSearch(q)
+        setKeyword(q)
+        loadProduct(params)
+    }
     return (
         <div className={classes.navBarFilter}>
             <div className={classes.info}>
@@ -30,7 +42,11 @@ const NavBarFilter = (props) => {
                     <i className="fas fa-list"></i>
                 </span>
 
-                <input type="text" name="" id="search" required="required" />
+                {/* <input type="text" name="" id="search" required="required" /> */}
+                <Search
+                    changHandleSearch={changHandleSearch}
+                    keyword={keyword}
+                />
             </div>
         </div>
     )

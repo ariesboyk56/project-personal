@@ -1,36 +1,61 @@
-import React, {useState, useContext} from 'react'
-import Skeleton from 'react-loading-skeleton'
-import 'react-loading-skeleton/dist/skeleton.css'
-import Footer from '../Footer'
+import React, {useState, useContext, useEffect} from 'react'
+import Footer from './../../components/Footer'
 import ContentList from './ContentList'
 import ContentGrid from './ContentGrid'
 import NavBarFilter from './NavBarFilter'
 import classes from './Products.module.scss'
 import SideBarFilter from './SideBarFilter'
 import { ProductContext } from '../../contexts/ProductContext'
-import Paginate from '../Paginate'
+import Paginate from './../../components/common/Paginate'
+import Loading from './../../components/common/Loading'
 
 const Products = () => {
     const [content, setContent] = useState("list")
-    const {proState: {proLoading, products, totalPages}} = useContext(ProductContext)
+    const [keySearch, setKeySearch] = useState("")
+    const {proState: {proLoading, products, totalPages}, loadProduct} = useContext(ProductContext)
+
     function cbContent(data){
         setContent(data)
     }
+    function cbSearch(data){
+        setKeySearch(data)
+        console.log("truyen data", data);
+
+    }
+    
     const showContent = () => {
         if(proLoading || products === null){
-            return <section>
-                <Skeleton count={10} height={5} />
-            </section>
+            return <Loading />
         } else {
             return <div>
                 {content === "list" ? <ContentList /> : <ContentGrid />}
             </div>
         }
     }
+    useEffect(() => {
+        const params = {
+            page: null,
+        }
+        loadProduct(params)
+      }, []);
+
+    const handlePageChange = async event => {
+
+        const params = {
+            page: event.selected,
+            search: keySearch
+        }
+        try {
+            await loadProduct(params)
+        } catch (error) {
+            console.log(error);
+        }
+        
+    }
     return (
         <div className={classes.shop}>
             <div className="wide">
-                <NavBarFilter cbContent={cbContent}/>
+                <NavBarFilter cbContent={cbContent} cbSearch={cbSearch}/>
                 <div className="row">
                     <div className="col-xs-3 col-sm-3 col-md-3 col-lg-3">
                         <SideBarFilter />
@@ -39,6 +64,7 @@ const Products = () => {
                         {showContent()}
                         <Paginate 
                             pageCount = {totalPages}
+                            handlePageChange={handlePageChange}
                         />
                     </div>
                 </div>

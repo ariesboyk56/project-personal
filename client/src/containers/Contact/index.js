@@ -2,7 +2,7 @@ import React from 'react';
 import { Outlet, useLocation } from "react-router-dom"
 import classes from './Contact.module.scss'
 import { NavLink } from "react-router-dom";
-import Footer from "./../Footer"
+import Footer from "./../../components/Footer"
 
 const menus = [
     {

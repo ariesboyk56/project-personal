@@ -16,16 +16,18 @@ const ProductContextProvider = ({children}) => {
     // useEffect(()=>loadProduct(), [])
 
     const loadProduct = async params => {
+
         let page = params.page || 0
-        let limit = 3
+        let search = params.search || ''
+        let limit = 1
         try {
-            const response = await axios.get(`${apiUrl}/products?page=${page}&limit=${limit}`)
+            const response = await axios.get(`${apiUrl}/products?page=${page}&limit=${limit}&q=${search}`)
             if (response.data.success){
+                console.log("tong page", response.data.totalPages);
                 dispatch(fetchProducts({
                     products: response.data.products,
                     totalPages: response.data.totalPages
                 }))
-                
             }
             return response.data
         } catch (error) {

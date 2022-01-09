@@ -1,33 +1,15 @@
-import React, { useEffect, useContext} from 'react'
+import React from 'react'
 import ReactPaginate from 'react-paginate';
-import { ProductContext } from '../../contexts/ProductContext';
 import "./pagination.scss"
 
 const Paginate = (props) => {
     let pageCount = Math.ceil(props.pageCount)
-    const {loadProduct} = useContext(ProductContext)
-
-    useEffect(() => {
-        const params = {
-            page: null
-        }
-        loadProduct(params)
-      }, []);
-
-    const handlePageChange = async event => {
-        const params = {
-            page: event.selected
-        }
-        try {
-            await loadProduct(params)
-        } catch (error) {
-            console.log(error);
-        }
-        
+    const onPageChange = event => {
+        props.handlePageChange(event)
     }
     return <ReactPaginate
     nextLabel="next >"
-    onPageChange={handlePageChange}
+    onPageChange={onPageChange}
     pageRangeDisplayed={3}
     marginPagesDisplayed={2}
     pageCount={pageCount}

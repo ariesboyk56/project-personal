@@ -31,14 +31,27 @@ const clientData = [
 const About = () => {
     const $ = document.querySelector.bind(document)
     const $$ = document.querySelectorAll.bind(document)
-    useEffect(()=>loadOutClient())
+    const showInfoClient = (clientData) => {
+        return clientData.map((client, index) => {
+            return <div key={index} className={classes.infoOutClient}>
+                <p className={classes.nameClient}>{client.name}</p>
+                <p className={classes.serviceClient}>{client.service}</p>
+                <p className={classes.descClient}>{client.description}</p>
+            </div>
+        })
+    }
+    useEffect(()=>{
+        console.log("asdasd");
+        loadOutClient()
+    })
     function loadOutClient(){
-        const avtItems = $$(`.${classes.avtItem}`)
+        const avtItems = $$(`.${classes.avtOutItem}`)
         const dotItems = $$(`.${classes.dotItem}`)
-        const infoClients = $$(`.${classes.infoClient}`)
-        avtItems.forEach((item, index) => {
-            item.onclick = () => {
-                $(`.${classes.avtItem}.${classes.active}`).classList.remove(`${classes.active}`);
+        const infoClients = $$(`.${classes.infoOutClient}`)
+        console.log(infoClients);
+        return avtItems.forEach((item, index) => {
+            return item.onclick = () => {
+                $(`.${classes.avtOutItem}.${classes.active}`).classList.remove(`${classes.active}`);
                 $(`.${classes.dotItem}.${classes.active}`).classList.remove(`${classes.active}`);
                 item.classList.add(`${classes.active}`);
                 dotItems[index].classList.add(`${classes.active}`);
@@ -53,17 +66,6 @@ const About = () => {
         });
     }
     
-    const showInfoClient = (clientData) => {
-        return clientData.map((client, index) => {
-            return <div key={index} className={classes.infoClient}>
-                <p className={classes.nameClient}>{client.name}</p>
-                <p className={classes.serviceClient}>{client.service}</p>
-                <p className={classes.descClient}>{client.description}</p>
-            </div>
-        })
-    }
-
-
     return (
         <div className={classes.about}>
             <div className="wide">
@@ -116,9 +118,9 @@ const About = () => {
                 <h1>Our Client Say!</h1>
                 <div className={classes.clientContent}>
                     <div className={classes.avtClient}>
-                        <img className={clsx(classes.avtItem, classes.active)} srcSet={`${clientImg3} 2x`} alt='offerimage' />
-                        <img className={classes.avtItem} srcSet={`${clientImg2} 2x`} alt='offerimage' />
-                        <img className={classes.avtItem} srcSet={`${clientImg2} 2x`} alt='offerimage' />
+                        <img className={clsx(classes.avtOutItem, classes.active)} srcSet={`${clientImg3} 2x`} alt='offerimage' />
+                        <img className={classes.avtOutItem} srcSet={`${clientImg2} 2x`} alt='offerimage' />
+                        <img className={classes.avtOutItem} srcSet={`${clientImg2} 2x`} alt='offerimage' />
                     </div>
                 <div className={classes.wrapClient}>{showInfoClient(clientData)}</div>
                 </div>
