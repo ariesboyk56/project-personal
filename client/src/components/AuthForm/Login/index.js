@@ -6,6 +6,7 @@ import { AuthContext } from "../../../contexts/AuthContext"
 
 const Login = () => {
     const {loginUser} = useContext(AuthContext)
+
     const navigate = useNavigate()
     const handleClick = () => {
         navigate("/auth/register")

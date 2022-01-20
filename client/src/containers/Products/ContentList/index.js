@@ -1,11 +1,13 @@
 import React, { useContext } from 'react'
+import "./contentlist.scss"
+import { NavLink } from 'react-router-dom';
 import { ProductContext } from '../../../contexts/ProductContext';
 import BasicRating from '../Rating';
-import "./contentlist.scss"
-
+import { useLocation } from "react-router-dom"
 
 const ContentList = () => {
     const {proState: {products}} = useContext(ProductContext)
+    const location = useLocation();
     const showProduct = () => {
         return products.map((item, index) => {
             const {
@@ -17,7 +19,8 @@ const ContentList = () => {
                 pro_description
             } = item
             return (
-                <div key={index} className='productList'>
+                <NavLink key={index} to={`${location.pathname}/${pro_name}`} state={item}>
+                    <div className='productList'>
                     <div className='productList-img'>
                         <img srcSet={`${pro_avatar} 2x`} alt={pro_name} />
                     </div>
@@ -36,6 +39,8 @@ const ContentList = () => {
                         </div>
                     </div>
                 </div>
+                </NavLink>
+                
             )
         })
     }

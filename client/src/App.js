@@ -16,6 +16,7 @@ import Register from './components/AuthForm/Register';
 import Products from './containers/Products';
 import AuthContextProvider from './contexts/AuthContext';
 import ProductContextProvider from './contexts/ProductContext';
+import ProductDetail from './containers/Products/ProductDetail';
 
 function App() {
     return (
@@ -31,6 +32,7 @@ function App() {
                         <Route path="register" element={<Register />} /> 
                     </Route>
                     <Route path="products" element={<Products />} />
+                    <Route path="products/:name" element={<ProductDetail />} />
                     <Route path="contact" element={<Contact />}>
                         <Route path="" element={<ContentContact />} />
                         <Route path="about" element={<About />} />

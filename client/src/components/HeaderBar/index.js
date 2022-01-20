@@ -1,13 +1,31 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import classes from "./HeadingBar.module.scss";
 import clsx from "clsx";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from '../../contexts/AuthContext';
 
 const HeadingBar = () => {
   let navigate = useNavigate();
-
+  const { authState: { user }, logOut } = useContext(AuthContext)
+  const [showLoginBar, setShowLoginBar] = useState(false)
+  // const token = localStorage[LOCAL_STORAGE_TOKEN] || null
   const handleClick = () => {
     navigate("/auth/login")
+  }
+  const handleClickLogOut = () => {
+    setShowLoginBar(!showLoginBar)
+  }
+  const handleLogOut = (event) => {
+    event.preventDefault();
+    handleClickLogOut()
+    logOut()
+  }
+  const showLogin = (person) => {
+    if (person) {
+      return <span onClick={() => handleClickLogOut()} >{person.lastName}</span>
+    } else {
+      return <span onClick={() => handleClick()} >Login</span>
+    }
   }
   return (
     <div className={classes.content}>
@@ -43,7 +61,14 @@ const HeadingBar = () => {
             <i className=" ml-4 far fa-heart"></i>
           </div>
           <div className={classes.item}>
-            <span onClick={() => handleClick()}>Login</span>
+            {showLogin(user)}
+            <div className={classes.loginBar} style={showLoginBar ? { display: "block" } : { display: "none" }}>
+              <ul>
+                <li>Thông tin cá nhân</li>
+                <li>Lịch sử</li>
+                <li onClick={(event) => handleLogOut(event)}>Đăng xuất</li>
+              </ul>
+            </div>
             <i className=" ml-4 far fa-user"></i>
           </div>
           <div className={classes.item}>

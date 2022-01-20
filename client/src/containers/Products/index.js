@@ -8,19 +8,23 @@ import SideBarFilter from './SideBarFilter'
 import { ProductContext } from '../../contexts/ProductContext'
 import Paginate from './../../components/common/Paginate'
 import Loading from './../../components/common/Loading'
+// import { useLocation } from "react-router-dom"
+// import { useParams } from 'react-router';
 
 const Products = () => {
     const [content, setContent] = useState("list")
     const [keySearch, setKeySearch] = useState("")
     const {proState: {proLoading, products, totalPages}, loadProduct} = useContext(ProductContext)
-
+    // const location = useLocation();
+    // console.log("location.pathname", location.pathname);
+    // console.log("location", location);
+    // const { id } = useParams();
+    // console.log("id", id);
     function cbContent(data){
         setContent(data)
     }
     function cbSearch(data){
         setKeySearch(data)
-        console.log("truyen data", data);
-
     }
     
     const showContent = () => {

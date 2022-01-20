@@ -36,7 +36,6 @@ router.get('/', async (req, res) => {
             const products = await Product
                 .find({
                     pro_name: { $regex: '.*' + search + '.*', $options: 'i' }
-                    // pro_new_price: { $gt: 20, $lt: 60 }
                 })
                 .limit(limit)
                 .skip(page * limit)
@@ -116,6 +115,7 @@ router.post('/', verifyToken, async (req, res) => {
         pro_quantity,
         pro_description,
         pro_avatar,
+        pro_sub_avatar,
         pro_category_id,
         pro_author_id,
         pro_sale,
@@ -144,6 +144,7 @@ router.post('/', verifyToken, async (req, res) => {
             pro_quantity,
             pro_description,
             pro_avatar,
+            pro_sub_avatar,
             pro_category_id,
             pro_author_id: req.userId,
             pro_sale,
@@ -181,6 +182,7 @@ router.put('/:id', verifyToken, async (req, res) => {
         pro_quantity,
         pro_description,
         pro_avatar,
+        pro_sub_avatar,
         pro_category_id,
         pro_sale,
         pro_status,
@@ -209,6 +211,7 @@ router.put('/:id', verifyToken, async (req, res) => {
             pro_quantity,
             pro_description,
             pro_avatar,
+            pro_sub_avatar,
             pro_category_id,
             pro_sale,
             pro_status,

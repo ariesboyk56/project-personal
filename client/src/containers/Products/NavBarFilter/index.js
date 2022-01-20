@@ -7,7 +7,7 @@ const NavBarFilter = (props) => {
     const {loadProduct} = useContext(ProductContext)
     const changHandleSearch = q => {
         const params = {
-            page: 0,
+            page: null,
             search: q
         }
         props.cbSearch(q)

@@ -16,6 +16,9 @@ const ProductSchema = new Schema({
     pro_avatar: {
         type: String,
     },
+    pro_sub_avatar: {
+        type: [String],
+    },
     pro_new_price: {
         type: Number,
     },
