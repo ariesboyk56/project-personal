@@ -1,17 +1,19 @@
 import React, { useState } from 'react'
 import classes from './ProductDetail.module.scss'
 import clsx from 'clsx'
+import {useDispatch} from 'react-redux'
 import { useLocation, useParams, useSearchParams } from "react-router-dom"
 import BasicRating from '../Rating';
 import { ReactComponent as FacebookIcon } from './../../../image/icons/FacebookIcon.svg'
 import { ReactComponent as InstagramIcon } from './../../../image/icons/InstagramIcon.svg'
 import { ReactComponent as TwitterIcon } from './../../../image/icons/TwitterIcon.svg'
 import Footer from './../../../components/Footer'
+import { addToCart } from '../../../actions/cartAction'
 
 const ProductDetail = () => {
     const location = useLocation();
-    let urlParams = useParams();
-    let [urlSearchParams] = useSearchParams();
+    const dispatch = useDispatch()
+    // let urlParams = useParams();
     const { state: {
         pro_avatar,
         pro_sub_avatar,
@@ -24,8 +26,15 @@ const ProductDetail = () => {
             votes
         }
     } } = location
-    console.log("location", location);
-    console.log("urlParams", urlParams);
+    const handleAddToCart = (product) => {
+        // const productExist = carts.find(item => item._id === product._id)
+        // if (productExist) {
+        //     setCarts(carts.map(item => item._id === product._id ? { ...productExist, orderQuantity: productExist.orderQuantity + 1 } : item))
+        // } else {
+        //     setCarts([...carts, { ...product, orderQuantity: 1 }])
+        // }
+        dispatch(addToCart(product, 1))
+    }
     return (
         <>
             <div className={clsx(classes.productDetail, "wide")}>
@@ -52,7 +61,7 @@ const ProductDetail = () => {
                         </div>
                         <p>{pro_description}</p>
                         <div className={classes.action}>
-                            <button className='btn'>Add To Cart</button>
+                            <button className='btn primary' onClick={() => handleAddToCart(location.state)}>Add To Cart</button>
                             <span><i className="far fa-heart"></i></span>
                         </div>
                         <div>
@@ -64,9 +73,9 @@ const ProductDetail = () => {
                         <div className={classes.share}>
                             <span className={classes.title}>Share</span>
                             <div>
-                                <a href="https://www.facebook.com/" target="_blank"><FacebookIcon /></a>
-                                <a href="https://www.instagram.com/" target="_blank"><InstagramIcon /></a>
-                                <a href="https://twitter.com/" target="_blank"><TwitterIcon /></a>
+                                <a href="https://www.facebook.com/" target="_blank" rel="noreferrer"><FacebookIcon /></a>
+                                <a href="https://www.instagram.com/" target="_blank" rel="noreferrer"><InstagramIcon /></a>
+                                <a href="https://twitter.com/" target="_blank" rel="noreferrer"><TwitterIcon /></a>
                             </div>
                         </div>
                     </div>

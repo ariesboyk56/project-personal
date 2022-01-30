@@ -1,0 +1,92 @@
+.containerStatusOrders {
+  display: flex;
+  h3 {
+    font-size: 20px;
+    line-height: 23px;
+    font-weight: bold;
+    margin: 0;
+  }
+  .statusOrders,
+  .infoCustomer {
+    display: flex;
+    p {
+      font-size: 14px;
+      line-height: 14px;
+      color: #a1a8c1;
+      margin: 7px 0;
+    }
+    i {
+      font-size: 30px;
+    }
+  }
+  .infoCustomer {
+    div {
+      width: 150px;
+    }
+    div:nth-child(1) {
+      width: 220px;
+    }
+    div:nth-child(3) {
+      width: 350px;
+    }
+    margin-bottom: 60px;
+  }
+  .statusOrders {
+    gap: 0 100px;
+    text-align: center;
+    .disable {
+      opacity: 0.3;
+    }
+    .checkedIcon {
+      i {
+        font-size: 20px;
+        color: rgb(96, 192, 0);
+      }
+    }
+    .inProgress {
+      animation: inProgress 1s ease infinite alternate;
+    }
+    .disable .checkedIcon,
+    .inProgress .checkedIcon {
+      display: none;
+    }
+  }
+  .containerCart {
+    text-align: center;
+    .cartTotals {
+      background-color: #f4f4fc;
+      width: 371px;
+      padding: 26px;
+      .discount,
+      .totals,
+      .subTotals {
+        padding: 13px 0;
+        border-bottom: 2px solid #e8e6f1;
+        font-family: var(--secondary-font);
+        font-style: normal;
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 22px;
+        display: flex;
+        justify-content: space-between;
+      }
+      button {
+        margin-top: 35px;
+        margin-bottom: 14px;
+        width: 100%;
+        font-family: var(--secondary-font);
+        font-weight: bold;
+        height: 40px;
+      }
+    }
+  }
+}
+
+@keyframes inProgress {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

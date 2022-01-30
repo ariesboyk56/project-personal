@@ -1,6 +1,6 @@
 .content {
   position: fixed;
-  z-index: 11;
+  z-index: 102;
   display: flex;
   justify-content: center;
   font-size: 1.6rem;
@@ -10,7 +10,7 @@
   top: 0;
   background-color: #7e33e0;
   color: var(--white-color);
-  span {
+  span, .item {
     cursor: pointer;
   }
   .contentWide {

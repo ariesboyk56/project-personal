@@ -9,16 +9,16 @@ const menus = [
     name: "Home",
   },
   {
-    path: "/pages",
-    name: "Pages",
-  },
-  {
     path: "/products",
     name: "Product",
   },
   {
-    path: "/blog",
-    name: "Blog",
+    path: "/shop",
+    name: "Shop",
+  },
+  {
+    path: "/admin",
+    name: "Admin",
   },
   {
     path: "/contact",

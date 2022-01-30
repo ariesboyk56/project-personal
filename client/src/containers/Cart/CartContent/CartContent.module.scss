@@ -1,0 +1,64 @@
+.container {
+  h3 {
+    font-size: 20px;
+    line-height: 23px;
+    font-weight: bold;
+  }
+  input{
+    width: 50px;
+  }
+  font-size: 14px;
+  line-height: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  .cartContent {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0 17px;
+    .cartImg {
+      height: 87px;
+      width: 83px;
+      position: relative;
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
+      .delCartItem {
+        cursor: pointer;
+        position: absolute;
+        right: -4px;
+        top: -4px;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        color: #fff;
+        background-color: var(--primary-color);
+        &:hover{
+          opacity: .9;
+        }
+      }
+    }
+    .cartInfo {
+      display: flex;
+      flex-direction: column;
+      width: 200px;
+      .item {
+        font-size: 12px;
+        line-height: 14px;
+        color: #a1a8c1;
+      }
+      .item:first-child {
+        font-size: 14px;
+        line-height: 16px;
+        color: #000000;
+      }
+    }
+  }
+  
+}

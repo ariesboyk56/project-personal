@@ -43,7 +43,7 @@ router.get('/', async (req, res) => {
                     if (err) {
                         return res.json(err);
                     }
-                    Product.countDocuments({pro_name: { $regex: '.*' + search + '.*', $options: 'i' }}).exec((count_error, count) => {
+                    Product.countDocuments({ pro_name: { $regex: '.*' + search + '.*', $options: 'i' } }).exec((count_error, count) => {
                         if (err) {
                             return res.json(count_error);
                         }
@@ -248,24 +248,46 @@ router.put('/:id', verifyToken, async (req, res) => {
 // @desc Delete product
 // @access Private
 router.delete('/:id', verifyToken, async (req, res) => {
-    try {
-        const proDelCondition = { _id: req.params.id, pro_author_id: req.userId }
-        const delProduct = await Product.findOneAndDelete(proDelCondition)
+    console.log("delete by role", req.role);
+    if (role === "admin") {
+        try {
+            const delProduct = await Product.findByIdAndDelete(req.params.id)
 
-        //User not authorized to update product or product not found
-        if (!delProduct)
-            return res
-                .status(401)
-                .json({ success: false, message: "User not authorized or product not found" })
+            //User not authorized to update product or product not found
+            if (!delProduct)
+                return res
+                    .status(401)
+                    .json({ success: false, message: "User not authorized or product not found" })
 
-        res
-            .json({ success: true, message: "Product delete successfully", product: delProduct })
-    } catch (error) {
-        console.log(error);
-        res
-            .status(500)
-            .json({ success: false, message: "Internal server error" })
+            res
+                .json({ success: true, message: "Product delete successfully", product: delProduct })
+        } catch (error) {
+            console.log(error);
+            res
+                .status(500)
+                .json({ success: false, message: "Internal server error" })
+        }
+    } else {
+        try {
+            const proDelCondition = { _id: req.params.id, pro_author_id: req.userId }
+            const delProduct = await Product.findOneAndDelete(proDelCondition)
+
+            //User not authorized to update product or product not found
+            if (!delProduct)
+                return res
+                    .status(401)
+                    .json({ success: false, message: "User not authorized or product not found" })
+
+            res
+                .json({ success: true, message: "Product delete successfully", product: delProduct })
+        } catch (error) {
+            console.log(error);
+            res
+                .status(500)
+                .json({ success: false, message: "Internal server error" })
+        }
     }
+
 })
 
 

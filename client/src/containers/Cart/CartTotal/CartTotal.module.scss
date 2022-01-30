@@ -1,0 +1,35 @@
+.container {
+    h3 {
+      font-size: 20px;
+      line-height: 23px;
+      font-weight: bold;
+    }
+    .cartTotals {
+      background-color: #f4f4fc;
+      width: 371px;
+      height: 400px;
+      padding: 26px;
+      .discount,
+      .totals,
+      .subTotals {
+        padding: 13px 0;
+        border-bottom: 2px solid #e8e6f1;
+        font-family: var(--secondary-font);
+        font-style: normal;
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 22px;
+        display: flex;
+        justify-content: space-between;
+      }
+      button {
+        margin-top: 35px;
+        margin-bottom: 14px;
+        width: 100%;
+        font-family: var(--secondary-font);
+        font-weight: bold;
+        height: 40px;
+      }
+    }
+  }
+  

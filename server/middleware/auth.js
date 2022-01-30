@@ -9,16 +9,17 @@ const verifyToken = async (req, res, next) => {
     return res
         .status(401)
         .json({success: false, message: "Access token not found"})
+        // .redirect("/auth/login")
     try {
         const decoded = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET)
         req.userId = decoded.userId
         const user = await User.findById(req.userId).select('-password')
         req.role = user.position
+        console.log("verifyToken req.role", req.role);
         next()
     } catch (error) {
-        console.log(error);
+        console.log("error");
         return res.status(403).json({success: false, message: "Invalid token"})
     }
 }
-
 module.exports = verifyToken

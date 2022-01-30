@@ -17,30 +17,39 @@ import Products from './containers/Products';
 import AuthContextProvider from './contexts/AuthContext';
 import ProductContextProvider from './contexts/ProductContext';
 import ProductDetail from './containers/Products/ProductDetail';
+import Cart from './containers/Cart';
+import CartContent from './containers/Cart/CartContent';
+import StatusOrders from './containers/Cart/StatusOrders';
+import Admin from './containers/Admin';
 
 function App() {
     return (
         <AuthContextProvider>
             <ProductContextProvider>
-                <div className='grid' style={{overflow: "hidden"}}>
-                <HeadingBar />
-                <Menu />
-                <Routes>
-                    <Route path="/" element={<HomePage />} />
-                    <Route path="auth" element={<AuthForm />}>
-                        <Route path="login" element={<Login />} /> 
-                        <Route path="register" element={<Register />} /> 
-                    </Route>
-                    <Route path="products" element={<Products />} />
-                    <Route path="products/:name" element={<ProductDetail />} />
-                    <Route path="contact" element={<Contact />}>
-                        <Route path="" element={<ContentContact />} />
-                        <Route path="about" element={<About />} />
-                        <Route path="faq" element={<FAQ />} />
-                    </Route>
-                    <Route path="*" element={<NotFound404 />} />
-                </Routes>
-            </div>
+                <div className='grid' style={{ overflow: "hidden" }}>
+                    <HeadingBar />
+                    <Menu />
+                    <Routes>
+                        <Route path="/" element={<HomePage />} />
+                        <Route path="admin" element={<Admin />} />
+                        <Route path="auth" element={<AuthForm />}>
+                            <Route path="login" element={<Login />} />
+                            <Route path="register" element={<Register />} />
+                        </Route>
+                        <Route path="products" element={<Products />} />
+                        <Route path="products/:name" element={<ProductDetail />} />
+                        <Route path="contact" element={<Contact />}>
+                            <Route path="" element={<ContentContact />} />
+                            <Route path="about" element={<About />} />
+                            <Route path="faq" element={<FAQ />} />
+                        </Route>
+                        <Route path="orders" element={<Cart />} >
+                            <Route path="" element={<CartContent />} />
+                            <Route path=":id" element={<StatusOrders />} />
+                        </Route>
+                        <Route path="*" element={<NotFound404 />} />
+                    </Routes>
+                </div>
             </ProductContextProvider>
         </AuthContextProvider>
 

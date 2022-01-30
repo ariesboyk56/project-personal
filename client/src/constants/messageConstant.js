@@ -1,0 +1,1 @@
+export const MSG_EMPTY_CART = "Giỏ hàng rỗng"

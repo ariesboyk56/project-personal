@@ -3,14 +3,18 @@ import classes from "./HeadingBar.module.scss";
 import clsx from "clsx";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from '../../contexts/AuthContext';
+import { useSelector } from 'react-redux';
 
 const HeadingBar = () => {
   let navigate = useNavigate();
+  const cartItems = useSelector(state=>state.cart)
   const { authState: { user }, logOut } = useContext(AuthContext)
   const [showLoginBar, setShowLoginBar] = useState(false)
-  // const token = localStorage[LOCAL_STORAGE_TOKEN] || null
   const handleClick = () => {
     navigate("/auth/login")
+  }
+  const handleCart = () => {
+    navigate("/orders")
   }
   const handleClickLogOut = () => {
     setShowLoginBar(!showLoginBar)
@@ -51,7 +55,6 @@ const HeadingBar = () => {
             <span>English</span>
             <i className=" ml-4 fas fa-angle-down"></i>
           </div>
-
           <div className={classes.item}>
             <span>USD</span>
             <i className=" ml-4 fas fa-angle-down"></i>
@@ -71,13 +74,20 @@ const HeadingBar = () => {
             </div>
             <i className=" ml-4 far fa-user"></i>
           </div>
-          <div className={classes.item}>
+          <div className={classes.item} onClick={(e) => handleCart()}>
             <i className="fas fa-shopping-cart ml-4"></i>
+            <span> {showQuantity(cartItems)} </span>
           </div>
         </div>
       </div>
     </div>
   );
 };
-
+const showQuantity = (items) => {
+  var quantity = 0
+  for (let i = 0; i < items.length; i++) {
+    quantity += parseInt(items[i].quantity)
+  }
+  return quantity
+}
 export default HeadingBar;

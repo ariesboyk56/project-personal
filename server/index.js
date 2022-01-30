@@ -5,6 +5,7 @@ const cors = require('cors')
 
 const authRouter = require("./routes/auth")
 const productRouter = require("./routes/product")
+const orderRouter = require("./routes/order")
 
 const connectDB = async () =>{
     try {
@@ -28,6 +29,7 @@ app.use(cors())
 // app.get('/', (req, res) => res.send('hello word'))
 app.use('/api/auth', authRouter)
 app.use('/api/products', productRouter)
+app.use('/api/orders', orderRouter)
 
 const POST = 5050
 
