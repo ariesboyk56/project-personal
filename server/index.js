@@ -30,6 +30,6 @@ app.use('/api/auth', authRouter)
 app.use('/api/products', productRouter)
 app.use('/api/orders', orderRouter)
 
-const POST = 5050
+const POST = process.env.PORT || 5050
 
 app.listen(POST, () => console.log(`server started on post: ${POST}`))
