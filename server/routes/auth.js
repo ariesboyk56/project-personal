@@ -40,6 +40,7 @@ router.post('/register', async (req, res) => {
         status,
         position
     } = req.body
+    console.log("body", req.body);
     //Simple validation
     if (!email || !password || !firstName || !lastName)
         return res

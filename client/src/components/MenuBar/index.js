@@ -13,10 +13,6 @@ const menus = [
     name: "Product",
   },
   {
-    path: "/shop",
-    name: "Shop",
-  },
-  {
     path: "/admin",
     name: "Admin",
   },

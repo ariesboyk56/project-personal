@@ -24,6 +24,7 @@ const ProductSchema = new Schema({
     },
     pro_old_price: {
         type: Number,
+        default: 0
     },
     pro_quantity: {
         type: Number,

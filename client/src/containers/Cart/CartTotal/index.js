@@ -42,7 +42,7 @@ const CartTotal = ({ cartItems }) => {
                 </div>
             ) : (<button onClick={() => setOpen(true)} className="btn primary">CHECKOUT NOW!</button>)}
         </div>
-        {cash && <OrderDetail total={totals}/>}
+        {cash && <OrderDetail total={totals} setCash={setCash}/>}
     </div>;
 };
 

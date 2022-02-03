@@ -2,14 +2,13 @@ require('dotenv').config()
 const express = require('express')
 const mongoose = require('mongoose')
 const cors = require('cors')
-
 const authRouter = require("./routes/auth")
 const productRouter = require("./routes/product")
 const orderRouter = require("./routes/order")
 
-const connectDB = async () =>{
+const connectDB = async () => {
     try {
-        await mongoose.connect(`mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@database-shop.im72c.mongodb.net/database-shop?retryWrites=true&w=majority`,{
+        await mongoose.connect(`mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@database-shop.im72c.mongodb.net/database-shop?retryWrites=true&w=majority`, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
         })
@@ -33,4 +32,4 @@ app.use('/api/orders', orderRouter)
 
 const POST = 5050
 
-app.listen(POST,()=>console.log(`server started on post: ${POST}`))
+app.listen(POST, () => console.log(`server started on post: ${POST}`))

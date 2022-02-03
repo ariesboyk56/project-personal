@@ -24,6 +24,21 @@ const Product = require('../models/Product')
 // })
 
 // @route GET api/products
+// @desc Get product by id
+// @access Private
+router.get('/:id', verifyToken, async (req, res) => {
+    try {
+        const product = await Product.findById(req.params.id)
+        res.json({ success: true, product })
+    } catch (error) {
+        console.log(error);
+        res
+            .status(500)
+            .json({ success: false, message: "Internal server error" })
+    }
+})
+
+// @route GET api/products
 // @desc Get product
 // @access Public
 router.get('/', async (req, res) => {
@@ -123,12 +138,9 @@ router.post('/', verifyToken, async (req, res) => {
         pro_pay,
         create_at,
         view_counts,
-        meta: {
-            votes,
-            favs
-        }
+        votes,
+        favs
     } = req.body
-
     //Simple validation
     if (!pro_name)
         return res
@@ -153,8 +165,8 @@ router.post('/', verifyToken, async (req, res) => {
             create_at,
             view_counts,
             meta: {
-                votes,
-                favs
+                votes: votes || 0,
+                favs: favs || 3
             }
         })
         await newProduct.save()
@@ -248,7 +260,7 @@ router.put('/:id', verifyToken, async (req, res) => {
 // @desc Delete product
 // @access Private
 router.delete('/:id', verifyToken, async (req, res) => {
-    console.log("delete by role", req.role);
+    let role = req.role
     if (role === "admin") {
         try {
             const delProduct = await Product.findByIdAndDelete(req.params.id)

@@ -20,7 +20,9 @@ import ProductDetail from './containers/Products/ProductDetail';
 import Cart from './containers/Cart';
 import CartContent from './containers/Cart/CartContent';
 import StatusOrders from './containers/Cart/StatusOrders';
-import Admin from './containers/Admin';
+import AdminDashboard from './containers/AdminDashboard';
+import Admin from './containers/layouts/Admin';
+import PrivateRoute from './utils/PrivateRoute';
 
 function App() {
     return (
@@ -30,8 +32,14 @@ function App() {
                     <HeadingBar />
                     <Menu />
                     <Routes>
+                        <Route path="admin" element={
+                            <PrivateRoute>
+                                <Admin />
+                            </PrivateRoute>
+                        }>
+                            <Route path="" element={<AdminDashboard />} />
+                        </Route>
                         <Route path="/" element={<HomePage />} />
-                        <Route path="admin" element={<Admin />} />
                         <Route path="auth" element={<AuthForm />}>
                             <Route path="login" element={<Login />} />
                             <Route path="register" element={<Register />} />

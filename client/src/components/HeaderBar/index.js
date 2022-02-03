@@ -43,7 +43,7 @@ const HeadingBar = () => {
           </div>
 
           <div className={classes.item}>
-            <a href="tel:0825587643">
+            <a href="tel:0123456789">
               <i className="fas fa-phone-volume mr-10"></i>
               <span>0123-456-789</span>
             </a>
@@ -51,7 +51,7 @@ const HeadingBar = () => {
         </div>
 
         <div className={classes.action}>
-          <div className={classes.item}>
+          {/* <div className={classes.item}>
             <span>English</span>
             <i className=" ml-4 fas fa-angle-down"></i>
           </div>
@@ -62,7 +62,7 @@ const HeadingBar = () => {
           <div className={classes.item}>
             <span>Wishlist</span>
             <i className=" ml-4 far fa-heart"></i>
-          </div>
+          </div> */}
           <div className={classes.item}>
             {showLogin(user)}
             <div className={classes.loginBar} style={showLoginBar ? { display: "block" } : { display: "none" }}>

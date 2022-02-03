@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { createOrder } from '../../../utils/orders';
 import classes from './OrderDetail.module.scss'
 
-const OrderDetail = ({ total }) => {
+const OrderDetail = ({ total, setCash }) => {
   const [customer, setCustomer] = useState("");
   const [address, setAddress] = useState("");
 
@@ -18,6 +18,7 @@ const OrderDetail = ({ total }) => {
   return (
     <div className={classes.container}>
       <div className={classes.wrapper}>
+      <button onClick={()=>setCash(false)} className={`${classes.closeModal} btn primary`}>x</button>
         <h1 className={classes.title}>You will pay ${total} after delivery.</h1>
         <div className={classes.item}>
           <label className={classes.label}>Name Surname</label>
